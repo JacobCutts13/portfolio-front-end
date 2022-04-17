@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { IProject } from "./Projects";
+import findUniqueLanguages from "../utils/uniqueLanguages";
 
 interface IProps {
   filter: string;
@@ -22,26 +23,33 @@ export default function ProjectsFilter(Props: IProps): JSX.Element {
     }
   }, [Props.filter]);
 
+  const languages: string[] = findUniqueLanguages(Props.projects);
+  function languageButtons(): JSX.Element {
+    return (
+      <>
+        {languages.map((language) => (
+          <div key={language}>
+            <button
+              className={Props.filter === language ? "active-button" : ""}
+              onClick={() => Props.setFilter(language)}
+            >
+              {language}
+            </button>
+          </div>
+        ))}
+      </>
+    );
+  }
+
   return (
     <div className="filter">
       <button
-        className={Props.filter === "" ? "active" : ""}
+        className={Props.filter === "" ? "active-button" : ""}
         onClick={() => Props.setFilter("")}
       >
         All
       </button>
-      <button
-        className={Props.filter === "typescript" ? "active" : ""}
-        onClick={() => Props.setFilter("Typescript")}
-      >
-        Typescript
-      </button>
-      <button
-        className={Props.filter === "python" ? "active" : ""}
-        onClick={() => Props.setFilter("python")}
-      >
-        Python
-      </button>
+      {languageButtons()}
     </div>
   );
 }

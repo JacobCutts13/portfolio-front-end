@@ -30,7 +30,6 @@ function Projects(): JSX.Element {
     setProjects(projects);
     setFilteredProjects(projects);
   };
-
   return (
     <div className="app">
       <h1>Projects</h1>
@@ -44,7 +43,7 @@ function Projects(): JSX.Element {
         <AnimatePresence>
           {projects.length > 1 &&
             filteredProjects.map((project: IProject) => (
-              <div key={project.title}>
+              <div key={project.id}>
                 <Project
                   project={project}
                   hoverID={hoverID}

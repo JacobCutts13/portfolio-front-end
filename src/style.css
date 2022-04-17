@@ -17,7 +17,7 @@ button.active {
 
 .app {
   margin: auto;
-  width: 100%;
+  width: 80%;
 }
 
 .projects {
@@ -61,4 +61,26 @@ button.active {
   border: 2px solid rgb(28, 36, 53);
   font-weight: bold;
   cursor: pointer;
+}
+
+.filter button.active-button {
+  margin-right: 2rem;
+  min-width: 5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: rgb(28, 36, 53);
+  color: rgb(65, 98, 168);
+  border-radius: 1rem;
+  border: 2px solid rgb(28, 36, 53);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  margin: 10px auto;
 }

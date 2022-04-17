@@ -1,4 +1,4 @@
-import FindUniqueLanguages from "./uniquesLanguage";
+import findUniqueLanguages from "./uniqueLanguages";
 
 const projectsExample = [
   {
@@ -24,7 +24,7 @@ const projectsExample = [
 ];
 
 test("FindUniqueLanguages takes an array or arrays of languages and returns all unique languages", () => {
-  expect(FindUniqueLanguages(projectsExample)).toStrictEqual([
+  expect(findUniqueLanguages(projectsExample)).toStrictEqual([
     "python",
     "c++",
     "typescript",

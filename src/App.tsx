@@ -1,7 +1,11 @@
 import Projects from "./components/Projects";
 
 function App(): JSX.Element {
-  return <Projects />;
+  return (
+    <div className="app">
+      <Projects />;
+    </div>
+  );
 }
 
 export default App;

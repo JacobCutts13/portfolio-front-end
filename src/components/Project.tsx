@@ -18,9 +18,9 @@ export default function Project(Props: IProps): JSX.Element {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
         className="project"
-        id={Props.project.id.toString()}
+        key={Props.project.id.toString()}
       >
-        <div className="project-img" id={Props.project.id.toString() + "img"}>
+        <div className="project-img" key={Props.project.id.toString() + "img"}>
           <motion.div animate={{ opacity: opacityPerm }}>
             <img
               src={"/images/" + Props.project.image + ".png"}
