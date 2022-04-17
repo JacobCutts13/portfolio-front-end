@@ -2,21 +2,21 @@ import React, { useEffect } from "react";
 import { IProject } from "./Projects";
 
 interface IProps {
-  filter: number;
-  setFilter: React.Dispatch<React.SetStateAction<number>>;
+  filter: string;
+  setFilter: React.Dispatch<React.SetStateAction<string>>;
   setFilteredProjects: React.Dispatch<React.SetStateAction<IProject[]>>;
-  popProjects: IProject[];
+  projects: IProject[];
 }
 
 export default function ProjectsFilter(Props: IProps): JSX.Element {
   useEffect(() => {
-    if (Props.filter === 0) {
-      Props.setFilteredProjects(Props.popProjects);
+    if (Props.filter === "") {
+      Props.setFilteredProjects(Props.projects);
       return;
     } else {
       Props.setFilteredProjects(
-        Props.popProjects.filter((Project) =>
-          Project.genre_ids.includes(Props.filter)
+        Props.projects.filter((Project) =>
+          Project.language.includes(Props.filter)
         )
       );
     }
@@ -25,22 +25,22 @@ export default function ProjectsFilter(Props: IProps): JSX.Element {
   return (
     <div className="filter">
       <button
-        className={Props.filter === 0 ? "active" : ""}
-        onClick={() => Props.setFilter(0)}
+        className={Props.filter === "" ? "active" : ""}
+        onClick={() => Props.setFilter("")}
       >
         All
       </button>
       <button
-        className={Props.filter === 45 ? "active" : ""}
-        onClick={() => Props.setFilter(35)}
+        className={Props.filter === "typescript" ? "active" : ""}
+        onClick={() => Props.setFilter("Typescript")}
       >
-        Comedy
+        Typescript
       </button>
       <button
-        className={Props.filter === 28 ? "active" : ""}
-        onClick={() => Props.setFilter(28)}
+        className={Props.filter === "python" ? "active" : ""}
+        onClick={() => Props.setFilter("python")}
       >
-        Action
+        Python
       </button>
     </div>
   );

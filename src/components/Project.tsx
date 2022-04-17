@@ -20,13 +20,10 @@ export default function Project(Props: IProps): JSX.Element {
         className="project"
         id={Props.project.id.toString()}
       >
-        <h2>{Props.project.title}</h2>
         <div className="project-img" id={Props.project.id.toString() + "img"}>
           <motion.div animate={{ opacity: opacityPerm }}>
             <img
-              src={
-                "https://image.tmdb.org/t/p/w500" + Props.project.backdrop_path
-              }
+              src={"/images/" + Props.project.image + ".png"}
               alt=""
               id={Props.project.id.toString()}
               onMouseOver={(e) =>
@@ -39,7 +36,7 @@ export default function Project(Props: IProps): JSX.Element {
           {Props.hoverID === Props.project.id && (
             <>
               <div className="top-left">{Props.project.title}</div>
-              <div className="bottom-left">{Props.project.title}</div>
+              <div className="bottom-left">{Props.project.summary}</div>
             </>
           )}
         </div>
