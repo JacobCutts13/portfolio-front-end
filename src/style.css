@@ -1,0 +1,64 @@
+img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+button.active {
+  background-color: rgb(65, 98, 168);
+  color: white;
+}
+
+.app {
+  margin: auto;
+  width: 100%;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.project {
+  position: relative;
+  text-align: center;
+  color: grey;
+  margin: 1em;
+}
+
+.project-img {
+  position: relative;
+  color: black;
+}
+
+.top-left {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+.bottom-left {
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.filter button {
+  margin-right: 2rem;
+  min-width: 5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: white;
+  color: rgb(65, 98, 168);
+  border-radius: 1rem;
+  border: 2px solid rgb(28, 36, 53);
+  font-weight: bold;
+  cursor: pointer;
+}
