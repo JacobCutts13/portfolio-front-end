@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Project from "./Project";
 import Filter from "./ProjectsFilter";
+import { Fade } from "react-awesome-reveal";
 
 export interface IProject {
   id: number;
@@ -31,29 +32,33 @@ function Projects(): JSX.Element {
     setFilteredProjects(projects);
   };
   return (
-    <div className="app">
-      <h1>Projects</h1>
-      <Filter
-        filter={filter}
-        setFilter={setFilter}
-        setFilteredProjects={setFilteredProjects}
-        projects={projects}
-      />
-      <motion.div layout className="projects" key="Projects-motion">
-        <AnimatePresence>
-          {projects.length > 1 &&
-            filteredProjects.map((project: IProject) => (
-              <div key={project.id}>
-                <Project
-                  project={project}
-                  hoverID={hoverID}
-                  setHoverID={setHoverID}
-                />
-              </div>
-            ))}
-        </AnimatePresence>
-      </motion.div>
-    </div>
+    <section id="projects">
+      <Fade>
+        <div className="projects-main">
+          <h1>Projects</h1>
+          <Filter
+            filter={filter}
+            setFilter={setFilter}
+            setFilteredProjects={setFilteredProjects}
+            projects={projects}
+          />
+          <motion.div layout className="projects" key="Projects-motion">
+            <AnimatePresence>
+              {projects.length > 1 &&
+                filteredProjects.map((project: IProject) => (
+                  <div key={project.id}>
+                    <Project
+                      project={project}
+                      hoverID={hoverID}
+                      setHoverID={setHoverID}
+                    />
+                  </div>
+                ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      </Fade>
+    </section>
   );
 }
 

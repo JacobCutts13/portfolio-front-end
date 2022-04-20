@@ -1,4 +1,4 @@
-import {Fade} from "react-awesome-reveal"
+import { Fade } from "react-awesome-reveal";
 import ParticlesBg from "particles-bg";
 
 export default function Header(): JSX.Element {
@@ -7,56 +7,62 @@ export default function Header(): JSX.Element {
       <ParticlesBg type="cobweb" bg={true} />
 
       <nav id="nav-wrap">
-          <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
-            Show navigation
-          </a>
-          <a className="mobile-btn" href="#home" title="Hide navigation">
-            Hide navigation
-          </a>
+        <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
+          Show navigation
+        </a>
+        <a className="mobile-btn" href="#home" title="Hide navigation">
+          Hide navigation
+        </a>
 
-          <ul id="nav" className="nav">
-            <li className="current">
-              <a className="smoothscroll" href="#home">
-                Home
-              </a>
-            </li>
+        <ul id="nav" className="nav">
+          <li className="current">
+            <a className="smoothscroll" href="#home">
+              Home
+            </a>
+          </li>
 
-            <li>
-              <a className="smoothscroll" href="#about">
-                About
-              </a>
-            </li>
+          <li>
+            <a className="smoothscroll" href="#about">
+              About
+            </a>
+          </li>
 
-            <li>
-              <a className="smoothscroll" href="#resume">
-                Resume
-              </a>
-            </li>
+          <li>
+            <a className="smoothscroll" href="#updates">
+              Updates
+            </a>
+          </li>
 
-            <li>
-              <a className="smoothscroll" href="#portfolio">
-                Works
-              </a>
-            </li>
+          <li>
+            <a className="smoothscroll" href="#projects">
+              Projects
+            </a>
+          </li>
 
-            <li>
-              <a className="smoothscroll" href="#contact">
-                Contact
+          <li>
+            <a className="smoothscroll" href="#platforms">
+              Platforms
+            </a>
+          </li>
+
+          <li>
+            <a className="smoothscroll" href="#contact">
+              Contact
             </a>
           </li>
         </ul>
       </nav>
 
       <div className="row banner">
-          <div className="banner-text">
-            <Fade direction="up" duration={2000}>
-              <h1 className="responsive-headline">Jacob Cutts</h1>
-            </Fade>
-            <Fade direction="up" duration={3000}>
-              <h3>Hello</h3>
-            </Fade>
-            <hr />
-            {/* <Fade bottom duration={2000}>
+        <div className="banner-text">
+          <Fade direction="up" duration={2000}>
+            <h1 className="responsive-headline">Jacob Cutts</h1>
+          </Fade>
+          <Fade direction="up" duration={3000}>
+            <h3>Hello</h3>
+          </Fade>
+          <hr />
+          {/* <Fade bottom duration={2000}>
               <ul className="social">
                 <a href={project} className="button btn project-btn">
                   <i className="fa fa-book"></i>Project
@@ -66,14 +72,14 @@ export default function Header(): JSX.Element {
                 </a>
               </ul>
             </Fade> */}
-          </div>
         </div>
-        
-        <p className="scrolldown">
-          <a className="smoothscroll" href="#about">
-            <i className="icon-down-circle"></i>
-          </a>
-        </p>
+      </div>
+
+      <p className="scrolldown">
+        <a className="smoothscroll" href="#about">
+          <i className="icon-down-circle"></i>
+        </a>
+      </p>
     </header>
   );
 }

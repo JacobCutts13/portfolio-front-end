@@ -17,9 +17,13 @@ button.active {
 
 .app {
   margin: auto;
-  width: 80%;
+  width: 100%;
 }
 
+.projects-main {
+  margin: auto;
+  width: 80%;
+}
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
