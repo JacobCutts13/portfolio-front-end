@@ -23,7 +23,7 @@ export default function Project(Props: IProps): JSX.Element {
         <div className="project-img" key={Props.project.id.toString() + "img"}>
           <motion.div animate={{ opacity: opacityPerm }}>
             <img
-              src={"/images/" + Props.project.image + ".png"}
+              src={"/images/" + Props.project.image}
               alt=""
               id={Props.project.id.toString()}
               onMouseOver={(e) =>

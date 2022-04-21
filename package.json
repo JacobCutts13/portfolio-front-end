@@ -4,7 +4,9 @@
   "private": true,
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {
+    "@types/p5": "^1.4.2",
     "framer-motion": "^4.1.17",
+    "p5": "^1.4.1",
     "particles-bg": "^2.5.5",
     "react": "^17.0.2",
     "react-awesome-reveal": "^3.8.1",

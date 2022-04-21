@@ -10,11 +10,6 @@ h2 {
   font-size: 1rem;
 }
 
-button.active {
-  background-color: rgb(65, 98, 168);
-  color: white;
-}
-
 .app {
   margin: auto;
   width: 100%;
@@ -52,32 +47,6 @@ button.active {
   top: 80%;
   left: 20%;
   transform: translate(-50%, -50%);
-}
-
-.filter button {
-  margin-right: 2rem;
-  min-width: 5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  background: white;
-  color: rgb(65, 98, 168);
-  border-radius: 1rem;
-  border: 2px solid rgb(28, 36, 53);
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.filter button.active-button {
-  margin-right: 2rem;
-  min-width: 5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  background: rgb(28, 36, 53);
-  color: rgb(65, 98, 168);
-  border-radius: 1rem;
-  border: 2px solid rgb(28, 36, 53);
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .filter {

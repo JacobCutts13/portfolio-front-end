@@ -16,26 +16,26 @@ export default function Header(): JSX.Element {
 
         <ul id="nav" className="nav">
           <li className="current">
-            <a className="smoothscroll" href="#home">
+            <a className="smoothscroll" href="#Header">
               Home
             </a>
           </li>
 
-          <li>
+          {/* <li>
             <a className="smoothscroll" href="#about">
               About
+            </a>
+          </li> */}
+
+          <li>
+            <a className="smoothscroll" href="#projects">
+              Projects
             </a>
           </li>
 
           <li>
             <a className="smoothscroll" href="#updates">
               Updates
-            </a>
-          </li>
-
-          <li>
-            <a className="smoothscroll" href="#projects">
-              Projects
             </a>
           </li>
 
@@ -76,7 +76,7 @@ export default function Header(): JSX.Element {
       </div>
 
       <p className="scrolldown">
-        <a className="smoothscroll" href="#about">
+        <a className="smoothscroll" href="#projects">
           <i className="icon-down-circle"></i>
         </a>
       </p>

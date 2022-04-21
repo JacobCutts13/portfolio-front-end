@@ -26,16 +26,28 @@ function Projects(): JSX.Element {
   }, []);
 
   const fetchProjects = async () => {
-    const data = await fetch("http://localhost:5000/projects");
+    const data = await fetch("https://jc13-portfolio.herokuapp.com/projects");
     const projects: IProject[] = await data.json();
     setProjects(projects);
     setFilteredProjects(projects);
   };
   return (
     <section id="projects">
+
+      <div className="banner">
+        <div className="banner-text">
+          <Fade direction="up" duration={2000}>
+            <h1>Projects</h1>
+            <hr />
+          </Fade>
+          <Fade direction="up" duration={3000}>
+            <p>A collection of my projects</p>
+          </Fade>
+        </div>
+      </div>
+
       <Fade>
         <div className="projects-main">
-          <h1>Projects</h1>
           <Filter
             filter={filter}
             setFilter={setFilter}
@@ -44,7 +56,7 @@ function Projects(): JSX.Element {
           />
           <motion.div layout className="projects" key="Projects-motion">
             <AnimatePresence>
-              {projects.length > 1 &&
+              {projects.length > 0 &&
                 filteredProjects.map((project: IProject) => (
                   <div key={project.id}>
                     <Project
