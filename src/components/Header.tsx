@@ -1,11 +1,12 @@
 import { Fade } from "react-awesome-reveal";
 import GameOfLife from "../sketches/GameOfLife";
-import ParticlesBg from "particles-bg";
 
 export default function Header(): JSX.Element {
   return (
     <header id="Header">
-      <ParticlesBg type="cobweb" bg={true} />
+      <div style={{position: "absolute",zIndex: -1,top: 0,left: 0}}>
+        <GameOfLife />
+      </div>
       <nav id="nav-wrap">
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
           Show navigation
