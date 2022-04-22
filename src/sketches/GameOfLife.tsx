@@ -25,7 +25,7 @@ class GameOfLife extends React.Component {
     p.setup = () => {
         p.createCanvas(width, height);
         p.background(100);
-        p.frameRate(60)       
+        p.frameRate(30)       
         createPop(popSize)  
     };
 

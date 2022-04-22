@@ -33,7 +33,6 @@ function Projects(): JSX.Element {
   };
   return (
     <section id="projects">
-
       <div className="banner">
         <div className="banner-text">
           <Fade direction="up" duration={2000}>
@@ -46,7 +45,6 @@ function Projects(): JSX.Element {
         </div>
       </div>
 
-      <Fade>
         <div className="projects-main">
           <Filter
             filter={filter}
@@ -67,9 +65,8 @@ function Projects(): JSX.Element {
                   </div>
                 ))}
             </AnimatePresence>
-          </motion.div>
+          </motion.div> 
         </div>
-      </Fade>
     </section>
   );
 }
