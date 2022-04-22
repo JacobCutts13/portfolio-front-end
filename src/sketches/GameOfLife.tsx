@@ -8,19 +8,22 @@ class GameOfLife extends React.Component {
   private myRef: React.RefObject<HTMLInputElement>;
   private myP5: p5;
 
+
   constructor(props: IProps) {
     super(props);
     this.myRef = React.createRef();
+
   }
 
   Sketch = (p: p5): void => {
     let population: number[][] = [];
-    const popSize = 100;
+    const cellSize = 20
     const liveRate = 0.1;
-    const width = 800;
-    const height = 800;
+    const width = p.windowWidth;
+    const height = p.windowHeight;
+    const popSize = {col: Math.floor(width/cellSize), row: Math.floor(height/cellSize)}
     p.setup = () => {
-        p.createCanvas(800, 800);
+        p.createCanvas(width, height);
         p.background(100);
         p.frameRate(60)       
         createPop(popSize)  
@@ -34,29 +37,28 @@ class GameOfLife extends React.Component {
         updateCells();
     };
 
-    function createPop(popSize: number): void{
-        population = [...Array(popSize)].map(e => Array(popSize).fill(1))
-        for(let row = 0; row<popSize; row++){
-            for(let col = 0; col<popSize; col++){
+    function createPop(popSize: {col: number, row: number}): void{
+        population = [...Array(popSize.row)].map(e => Array(popSize.col).fill(1))
+        for(let row = 0; row<popSize.row; row++){
+            for(let col = 0; col<popSize.col; col++){
                 const val = Math.random()<liveRate? 1: 0;
                 population[row][col] = val;
             }
         }	
     }  
     function drawCells(){
-        const cellSize = width/popSize;
-        for(let row = 0; row<popSize; row++){
-            for(let col = 0; col<popSize; col++){
+        for(let row = 0; row<popSize.row; row++){
+            for(let col = 0; col<popSize.col; col++){
                 const colour = population[row][col]===1? 'white': 'black'
                 p.fill(colour);
-                p.square(row*cellSize, col*cellSize, cellSize);
+                p.square(col*cellSize, row*cellSize, cellSize);
             }
         }
     } 
     function updateCells(){
-        const populationtmp = [...Array(popSize)].map(e => Array(popSize).fill(1))
-        for(let row = 0; row<popSize; row++){
-            for(let col = 0; col<popSize; col++){
+        const populationtmp = [...Array(popSize.row)].map(e => Array(popSize.col).fill(1))
+        for(let row = 0; row<popSize.row; row++){
+            for(let col = 0; col<popSize.col; col++){
                 const liveNeighbours = countLiveNeighbours(row,col);
                 if(population[row][col]===1){
                     populationtmp[row][col] = (liveNeighbours===2 || liveNeighbours ===3)? 1: 0;
@@ -70,18 +72,21 @@ class GameOfLife extends React.Component {
     }
     function countLiveNeighbours(row: number, col: number){
         const left = col===0? 0: population[row][col-1];
-        const right = col===popSize-1? 0: population[row][col+1];
+        const right = col===popSize.col-1? 0: population[row][col+1];
         const up = row===0? 0: population[row-1][col];
-        const down = row===popSize-1? 0: population[row+1][col];
+        const down = row===popSize.row-1? 0: population[row+1][col];
         
         const upLeft = (row===0 || col ===0)? 0: population[row-1][col-1];
-        const upRight = (row===0 || col ===popSize-1)? 0: population[row-1][col+1];
-        const downLeft = (row===popSize-1 || col ===0)? 0: population[row+1][col-1];
-        const downRight = (row===popSize-1 || col ===popSize-1)? 0: population[row+1][col+1];
+        const upRight = (row===0 || col ===popSize.col-1)? 0: population[row-1][col+1];
+        const downLeft = (row===popSize.row-1 || col ===0)? 0: population[row+1][col-1];
+        const downRight = (row===popSize.row-1 || col ===popSize.col-1)? 0: population[row+1][col+1];
         
         const liveNeighbours = left+right+up+down+upLeft+upRight+downLeft+downRight;
         return liveNeighbours;
     }
+    // p.windowResized = () => {
+    //     p.resizeCanvas(p.windowWidth, p.windowHeight);
+    //   }
   };
 
   componentDidMount(): void {

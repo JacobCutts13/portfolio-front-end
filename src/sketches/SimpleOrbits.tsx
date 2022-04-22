@@ -18,8 +18,8 @@ class SimpleOrbits extends React.Component {
   }
 
   Sketch = (p: p5): void => {
-    const width = 800;
-    const height = 800;
+    const width = p.windowWidth;
+    const height = p.windowHeight;
     const sun = {size: 100, colour: 'yellow'}
     const earth = {size: 50, colour: 'blue'}
     const moon = {size: 10, colour: 'white'}
@@ -78,6 +78,9 @@ class SimpleOrbits extends React.Component {
     function drawBody(body: Ibody): void{
       p.fill(body.colour)
       p.circle(0, 0, body.size)
+    }
+    p.windowResized = () => {
+      p.resizeCanvas(p.windowWidth, p.windowHeight);
     }
   };
 
