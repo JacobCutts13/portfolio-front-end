@@ -1,11 +1,14 @@
 import { Fade } from "react-awesome-reveal";
 import GameOfLife from "../sketches/GameOfLife";
-import ParticlesBg from "particles-bg";
 
-export default function Header(): JSX.Element {
+export default function Home(): JSX.Element {
   return (
-    <header id="Header">
-      <ParticlesBg type="cobweb" bg={true} />
+    <section id="Home">
+      <div className="background">
+      <GameOfLife />
+      </div>
+      
+      <div className="foreground">
       <nav id="nav-wrap">
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
           Show navigation
@@ -74,8 +77,8 @@ export default function Header(): JSX.Element {
           <i className="icon-down-circle"></i>
         </a>
       </p>
- 
-  </header>
+      </div>
+  </section>
   
   );
 }

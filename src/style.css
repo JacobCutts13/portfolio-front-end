@@ -57,3 +57,13 @@ h2 {
   justify-content: center;
   margin: 10px auto;
 }
+
+.background {
+  z-index: 1;
+  position: absolute;
+}
+
+.foreground {
+  z-index: 2;
+  position: absolute;
+}

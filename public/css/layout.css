@@ -33,7 +33,7 @@ header {
    height: 800px;
    min-height: 500px;
    width: 100%;
-   
+   background: none;
    text-align: center;
    overflow: hidden;
 }
@@ -52,6 +52,7 @@ header .banner {
    width: 85%;
    padding-bottom: 30px;
    text-align: center;
+   z-index: 2;
 }
 
 header .banner-text { width: 100%; }
@@ -114,6 +115,15 @@ header .scrolldown a {
    transition: all .3s ease-in-out;
 }
 header .scrolldown a:hover { color: #0762f9; }
+
+header .z-1 {
+   z-index: 1;
+   position: absolute;
+}
+header .z-2 {
+   z-index: 2;
+   position: absolute;
+}
 
 /* primary navigation
 --------------------------------------------------------------------- */

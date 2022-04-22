@@ -1,3 +1,4 @@
+
 export default function Platforms(): JSX.Element {
   return (
     <section id="platforms">
