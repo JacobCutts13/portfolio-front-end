@@ -63,9 +63,9 @@ export default function Header(): JSX.Element {
           </Fade>
           <Fade direction="up" duration={3000}>
             <h3>
-              Junior Software Engineer<br></br>Interact or refresh for a new sketch
+              Junior Software Engineer<br></br>Interact or refresh for a new
+              sketch
             </h3>
-            
           </Fade>
           <hr />
           {/* <Fade bottom duration={2000}>

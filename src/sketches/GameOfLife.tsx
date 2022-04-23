@@ -99,7 +99,7 @@ class GameOfLife extends React.Component {
       p.resizeCanvas(p.windowWidth, p.windowHeight);
       width = p.windowWidth;
       height = p.windowHeight;
-    }
+    };
   };
 
   componentDidMount(): void {
