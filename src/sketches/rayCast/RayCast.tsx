@@ -18,8 +18,8 @@ class RayCast extends React.Component {
   }
 
   Sketch = (p: p5): void => {
-    const width = p.windowWidth;
-    const height = p.windowHeight;
+    let width = p.windowWidth;
+    let height = p.windowHeight;
     const walls: Wall[] = [];
     const rays: Ray[] = [];
     const hiders: Hider[] = [];
@@ -161,6 +161,8 @@ class RayCast extends React.Component {
 
     p.windowResized = () => {
       p.resizeCanvas(p.windowWidth, p.windowHeight);
+      width = p.windowWidth;
+      height = p.windowHeight;
     };
   };
 
