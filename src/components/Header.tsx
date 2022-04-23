@@ -2,9 +2,10 @@ import { Fade } from "react-awesome-reveal";
 import GameOfLife from "../sketches/GameOfLife";
 import SimpleOrbits from "../sketches/SimpleOrbits";
 import RayCast from "../sketches/rayCast/RayCast";
+import Fireworks from "../sketches/fireworks/Fireworks";
 
 export default function Header(): JSX.Element {
-  const sketchID = Math.floor(Math.random() * 3);
+  const sketchID = Math.floor(Math.random() * 4);
 
   return (
     <header id="Header">
@@ -12,6 +13,7 @@ export default function Header(): JSX.Element {
         {sketchID === 0 && <GameOfLife />}
         {sketchID === 1 && <RayCast />}
         {sketchID === 2 && <SimpleOrbits />}
+        {sketchID === 3 && <Fireworks />}
       </div>
       <nav id="nav-wrap">
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
@@ -61,8 +63,9 @@ export default function Header(): JSX.Element {
           </Fade>
           <Fade direction="up" duration={3000}>
             <h3>
-              Junior Software Engineer<br></br>Refresh for a new sketch
+              Junior Software Engineer<br></br>Interact or refresh for a new sketch
             </h3>
+            
           </Fade>
           <hr />
           {/* <Fade bottom duration={2000}>

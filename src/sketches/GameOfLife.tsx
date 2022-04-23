@@ -17,8 +17,8 @@ class GameOfLife extends React.Component {
     let population: number[][] = [];
     const cellSize = 20;
     const liveRate = 0.1;
-    const width = p.windowWidth;
-    const height = p.windowHeight;
+    let width = p.windowWidth;
+    let height = p.windowHeight;
     const popSize = {
       col: Math.floor(width / cellSize),
       row: Math.floor(height / cellSize),
@@ -26,7 +26,7 @@ class GameOfLife extends React.Component {
     p.setup = () => {
       p.createCanvas(width, height);
       p.background(100);
-      p.frameRate(30);
+      p.frameRate(15);
       createPop(popSize);
     };
 
@@ -95,9 +95,11 @@ class GameOfLife extends React.Component {
         left + right + up + down + upLeft + upRight + downLeft + downRight;
       return liveNeighbours;
     }
-    // p.windowResized = () => {
-    //     p.resizeCanvas(p.windowWidth, p.windowHeight);
-    //   }
+    p.windowResized = () => {
+      p.resizeCanvas(p.windowWidth, p.windowHeight);
+      width = p.windowWidth;
+      height = p.windowHeight;
+    }
   };
 
   componentDidMount(): void {
