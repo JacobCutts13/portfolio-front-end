@@ -18,15 +18,12 @@ export default function Project(Props: IProps): JSX.Element {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
         className="project"
-        id={Props.project.id.toString()}
+        key={Props.project.id.toString()}
       >
-        <h2>{Props.project.title}</h2>
-        <div className="project-img" id={Props.project.id.toString() + "img"}>
+        <div className="project-img" key={Props.project.id.toString() + "img"}>
           <motion.div animate={{ opacity: opacityPerm }}>
             <img
-              src={
-                "https://image.tmdb.org/t/p/w500" + Props.project.backdrop_path
-              }
+              src={"/images/" + Props.project.image}
               alt=""
               id={Props.project.id.toString()}
               onMouseOver={(e) =>
@@ -38,8 +35,10 @@ export default function Project(Props: IProps): JSX.Element {
 
           {Props.hoverID === Props.project.id && (
             <>
-              <div className="top-left">{Props.project.title}</div>
-              <div className="bottom-left">{Props.project.title}</div>
+              <div className="bottom-left">
+                <h1>{Props.project.title}</h1>
+              </div>
+              {/* <div className="bottom-left"><p>{Props.project.summary}</p></div> */}
             </>
           )}
         </div>

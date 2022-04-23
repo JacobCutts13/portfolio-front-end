@@ -1,47 +1,55 @@
 import React, { useEffect } from "react";
 import { IProject } from "./Projects";
+import findUniqueLanguages from "../utils/uniqueLanguages";
 
 interface IProps {
-  filter: number;
-  setFilter: React.Dispatch<React.SetStateAction<number>>;
+  filter: string;
+  setFilter: React.Dispatch<React.SetStateAction<string>>;
   setFilteredProjects: React.Dispatch<React.SetStateAction<IProject[]>>;
-  popProjects: IProject[];
+  projects: IProject[];
 }
 
 export default function ProjectsFilter(Props: IProps): JSX.Element {
   useEffect(() => {
-    if (Props.filter === 0) {
-      Props.setFilteredProjects(Props.popProjects);
+    if (Props.filter === "") {
+      Props.setFilteredProjects(Props.projects);
       return;
     } else {
       Props.setFilteredProjects(
-        Props.popProjects.filter((Project) =>
-          Project.genre_ids.includes(Props.filter)
+        Props.projects.filter((Project) =>
+          Project.language.includes(Props.filter)
         )
       );
-    }
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Props.filter]);
+
+  const languages: string[] = findUniqueLanguages(Props.projects);
+  function languageButtons(): JSX.Element {
+    return (
+      <>
+        {languages.map((language) => (
+          <div key={language}>
+            <button
+              className={Props.filter === language ? "active-button" : ""}
+              onClick={() => Props.setFilter(language)}
+            >
+              {language}
+            </button>
+          </div>
+        ))}
+      </>
+    );
+  }
 
   return (
     <div className="filter">
       <button
-        className={Props.filter === 0 ? "active" : ""}
-        onClick={() => Props.setFilter(0)}
+        className={Props.filter === "" ? "active-button" : ""}
+        onClick={() => Props.setFilter("")}
       >
         All
       </button>
-      <button
-        className={Props.filter === 45 ? "active" : ""}
-        onClick={() => Props.setFilter(35)}
-      >
-        Comedy
-      </button>
-      <button
-        className={Props.filter === 28 ? "active" : ""}
-        onClick={() => Props.setFilter(28)}
-      >
-        Action
-      </button>
+      {languageButtons()}
     </div>
   );
 }

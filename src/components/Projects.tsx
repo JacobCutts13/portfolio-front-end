@@ -2,18 +2,23 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Project from "./Project";
 import Filter from "./ProjectsFilter";
+import { Fade } from "react-awesome-reveal";
 
 export interface IProject {
-  title: string;
-  backdrop_path: string;
-  genre_ids: number[];
   id: number;
+  title: string;
+  language: string[];
+  summary: string;
+  description: string;
+  image: string;
+  create_date: string;
+  difficulty: number;
 }
 
 function Projects(): JSX.Element {
-  const [popProjects, setPopProjects] = useState<IProject[]>([]);
+  const [projects, setProjects] = useState<IProject[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<IProject[]>([]);
-  const [filter, setFilter] = useState<number>(0); //0=all 28=action 35=comedy
+  const [filter, setFilter] = useState<string>("");
   const [hoverID, setHoverID] = useState<number>(0);
 
   useEffect(() => {
@@ -21,39 +26,48 @@ function Projects(): JSX.Element {
   }, []);
 
   const fetchProjects = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=43b6b5ee0e7f808c5d3d5f89eb9f269d&language=en-US&page=1"
-    );
-    const projectsObj = await data.json();
-    const projects: IProject[] = projectsObj.results;
-    setPopProjects(projects);
+    const data = await fetch("https://jc13-portfolio.herokuapp.com/projects");
+    const projects: IProject[] = await data.json();
+    setProjects(projects);
     setFilteredProjects(projects);
   };
-
   return (
-    <div className="app">
-      <h1>Projects</h1>
-      <Filter
-        filter={filter}
-        setFilter={setFilter}
-        setFilteredProjects={setFilteredProjects}
-        popProjects={popProjects}
-      />
-      <motion.div layout className="projects" key="Projects-motion">
-        <AnimatePresence>
-          {popProjects.length > 1 &&
-            filteredProjects.map((project: IProject) => (
-              <div key={project.title}>
-                <Project
-                  project={project}
-                  hoverID={hoverID}
-                  setHoverID={setHoverID}
-                />
-              </div>
-            ))}
-        </AnimatePresence>
-      </motion.div>
-    </div>
+    <section id="projects">
+      <div className="banner">
+        <div className="banner-text">
+          <Fade direction="up" duration={2000}>
+            <h1>Projects</h1>
+            <hr />
+          </Fade>
+          <Fade direction="up" duration={3000}>
+            <p>A collection of my projects</p>
+          </Fade>
+        </div>
+      </div>
+
+      <div className="projects-main">
+        <Filter
+          filter={filter}
+          setFilter={setFilter}
+          setFilteredProjects={setFilteredProjects}
+          projects={projects}
+        />
+        <motion.div layout className="projects" key="Projects-motion">
+          <AnimatePresence>
+            {projects.length > 0 &&
+              filteredProjects.map((project: IProject) => (
+                <div key={project.id}>
+                  <Project
+                    project={project}
+                    hoverID={hoverID}
+                    setHoverID={setHoverID}
+                  />
+                </div>
+              ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
   );
 }
 
