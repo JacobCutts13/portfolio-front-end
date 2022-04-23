@@ -20,7 +20,7 @@ export default function ProjectsFilter(Props: IProps): JSX.Element {
           Project.language.includes(Props.filter)
         )
       );
-    }
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Props.filter]);
 
   const languages: string[] = findUniqueLanguages(Props.projects);

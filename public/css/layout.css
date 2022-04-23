@@ -512,6 +512,11 @@ ul#nav li.current a { color: #fe6928; }
    font-weight: bold;
    cursor: pointer;
  }
+ #projects .project-img h1{
+    text-align: justify;
+    color: #0D0D0D;
+    font: 20px/1em 'opensans-bold', sans-serif;
+ }
 
 /* ------------------------------------------------------------------ */
 /* f. Call To Action Section

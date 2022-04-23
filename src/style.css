@@ -21,7 +21,7 @@ h2 {
 }
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
 
 .project {
@@ -41,12 +41,14 @@ h2 {
   top: 20%;
   left: 20%;
   transform: translate(-50%, -50%);
+  text-align: left;
 }
 .bottom-left {
   position: absolute;
-  top: 80%;
-  left: 20%;
+  top: 90%;
+  left: 50%;
   transform: translate(-50%, -50%);
+  text-align: justify;
 }
 
 .filter {

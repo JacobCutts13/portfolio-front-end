@@ -45,28 +45,28 @@ function Projects(): JSX.Element {
         </div>
       </div>
 
-        <div className="projects-main">
-          <Filter
-            filter={filter}
-            setFilter={setFilter}
-            setFilteredProjects={setFilteredProjects}
-            projects={projects}
-          />
-          <motion.div layout className="projects" key="Projects-motion">
-            <AnimatePresence>
-              {projects.length > 0 &&
-                filteredProjects.map((project: IProject) => (
-                  <div key={project.id}>
-                    <Project
-                      project={project}
-                      hoverID={hoverID}
-                      setHoverID={setHoverID}
-                    />
-                  </div>
-                ))}
-            </AnimatePresence>
-          </motion.div> 
-        </div>
+      <div className="projects-main">
+        <Filter
+          filter={filter}
+          setFilter={setFilter}
+          setFilteredProjects={setFilteredProjects}
+          projects={projects}
+        />
+        <motion.div layout className="projects" key="Projects-motion">
+          <AnimatePresence>
+            {projects.length > 0 &&
+              filteredProjects.map((project: IProject) => (
+                <div key={project.id}>
+                  <Project
+                    project={project}
+                    hoverID={hoverID}
+                    setHoverID={setHoverID}
+                  />
+                </div>
+              ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
     </section>
   );
 }

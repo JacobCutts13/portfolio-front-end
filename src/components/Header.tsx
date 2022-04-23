@@ -4,14 +4,14 @@ import SimpleOrbits from "../sketches/SimpleOrbits";
 import RayCast from "../sketches/rayCast/RayCast";
 
 export default function Header(): JSX.Element {
-  const sketchID = Math.floor(Math.random()*3)
+  const sketchID = Math.floor(Math.random() * 3);
 
   return (
     <header id="Header">
-      <div style={{position: "absolute",zIndex: -1,top: 0,left: 0}}>
-        {sketchID===0 && <GameOfLife />}
-        {sketchID===1 && <RayCast />}
-        {sketchID===2 && <SimpleOrbits />}
+      <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
+        {sketchID === 0 && <GameOfLife />}
+        {sketchID === 1 && <RayCast />}
+        {sketchID === 2 && <SimpleOrbits />}
       </div>
       <nav id="nav-wrap">
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
@@ -60,7 +60,9 @@ export default function Header(): JSX.Element {
             <h1 className="responsive-headline">Jacob Cutts</h1>
           </Fade>
           <Fade direction="up" duration={3000}>
-            <h3>Junior Software Engineer</h3>
+            <h3>
+              Junior Software Engineer<br></br>Refresh for a new sketch
+            </h3>
           </Fade>
           <hr />
           {/* <Fade bottom duration={2000}>
@@ -81,8 +83,6 @@ export default function Header(): JSX.Element {
           <i className="icon-down-circle"></i>
         </a>
       </p>
- 
-  </header>
-  
+    </header>
   );
 }
