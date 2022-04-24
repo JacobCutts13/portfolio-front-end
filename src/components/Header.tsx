@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import GameOfLife from "../sketches/GameOfLife";
 import SimpleOrbits from "../sketches/SimpleOrbits";
@@ -5,14 +6,26 @@ import RayCast from "../sketches/rayCast/RayCast";
 import Fireworks from "../sketches/fireworks/Fireworks";
 
 export default function Header(): JSX.Element {
-  const sketchID = Math.floor(Math.random() * 4);
+  const [sketchID, setSketchID] = useState<number>(-1);
+
+  useEffect(() => {
+    pickRandomSketch(); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const pickRandomSketch = () => {
+    let newSketchID = Math.floor(Math.random() * 4);
+    while (newSketchID === sketchID) {
+      newSketchID = Math.floor(Math.random() * 4); //reroll
+    }
+    setSketchID(newSketchID);
+  };
 
   return (
     <header id="Header">
       <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
         {sketchID === 0 && <SimpleOrbits />}
-        {sketchID === 1 && <RayCast />}
-        {sketchID === 2 && <GameOfLife />}
+        {sketchID === 2 && <RayCast />}
+        {sketchID === 1 && <GameOfLife />}
         {sketchID === 3 && <Fireworks />}
       </div>
       <nav id="nav-wrap">
@@ -61,27 +74,36 @@ export default function Header(): JSX.Element {
           <Fade direction="up" duration={2000}>
             <h1 className="responsive-headline">Jacob Cutts</h1>
           </Fade>
-          {sketchID > 1 && (
-            <Fade direction="up" duration={3000}>
+          {sketchID % 2 === 1 && (
+            <Fade direction="up" duration={3000} cascade={true}>
               <h3>
                 Junior Software Engineer<br></br>Try clicking!
               </h3>
+              <div>
+                <button onClick={() => pickRandomSketch()}>This Sketch</button>
+                <button onClick={() => pickRandomSketch()}>New Sketch</button>
+              </div>
             </Fade>
           )}
-          {sketchID < 2 && (
-            <Fade direction="up" duration={3000}>
+          {sketchID % 2 === 0 && (
+            <Fade direction="up" duration={3000} cascade={true}>
               <h3>
                 Junior Software Engineer<br></br>Try moving your mouse!
               </h3>
+              <div>
+                <button onClick={() => pickRandomSketch()}>This Sketch</button>
+                <button onClick={() => pickRandomSketch()}>New Sketch</button>
+              </div>
             </Fade>
           )}
+
           <hr />
-          {/* <Fade bottom duration={2000}>
+          {/* <Fade direction="up" duration={2000}>
               <ul className="social">
-                <a href={project} className="button btn project-btn">
+                <a href="#projects" className="button btn project-btn">
                   <i className="fa fa-book"></i>Project
                 </a>
-                <a href={github} className="button btn github-btn">
+                <a href="#projects" className="button btn github-btn">
                   <i className="fa fa-github"></i>Github
                 </a>
               </ul>
