@@ -125,6 +125,16 @@ header .z-2 {
    position: absolute;
 }
 
+header button {
+   border-radius: 12px;
+   margin: 0px 5px;
+   background: #1f68e1;
+}
+
+header button:hover {
+   background: #0000ff;
+}
+
 /* primary navigation
 --------------------------------------------------------------------- */
 #nav-wrap ul, #nav-wrap li, #nav-wrap a {
