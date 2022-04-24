@@ -2,7 +2,6 @@ import p5 from "p5";
 import Particle from "./particle";
 
 const explosionSpeed = 6; //max explosion speed
-const initialSpeed = -17; //max initial speed
 const lifetime = 200; //number of frames firework is alive
 const colours = [
   "#f6c700",
@@ -39,6 +38,7 @@ export default class Firework {
     this.ageExploded = 0;
     this.alive = true;
     this.exploded = exploded;
+    const initialSpeed = -Math.sqrt(2 * 0.2 * height); //max initial speed
     this.firework = this.exploded
       ? new Particle(this.p, x, y, this.p.random(-1, 1), 0, this.colour)
       : new Particle(
@@ -46,7 +46,7 @@ export default class Firework {
           this.p.random(0, width),
           height,
           this.p.random(-1, 1),
-          this.p.random(initialSpeed + 5, initialSpeed),
+          this.p.random(initialSpeed / 2, initialSpeed),
           this.colour
         );
   }

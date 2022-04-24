@@ -10,9 +10,9 @@ export default function Header(): JSX.Element {
   return (
     <header id="Header">
       <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
-        {sketchID === 0 && <GameOfLife />}
+        {sketchID === 0 && <SimpleOrbits />}
         {sketchID === 1 && <RayCast />}
-        {sketchID === 2 && <SimpleOrbits />}
+        {sketchID === 2 && <GameOfLife />}
         {sketchID === 3 && <Fireworks />}
       </div>
       <nav id="nav-wrap">
@@ -61,12 +61,20 @@ export default function Header(): JSX.Element {
           <Fade direction="up" duration={2000}>
             <h1 className="responsive-headline">Jacob Cutts</h1>
           </Fade>
-          <Fade direction="up" duration={3000}>
-            <h3>
-              Junior Software Engineer<br></br>Interact or refresh for a new
-              sketch
-            </h3>
-          </Fade>
+          {sketchID > 1 && (
+            <Fade direction="up" duration={3000}>
+              <h3>
+                Junior Software Engineer<br></br>Try clicking!
+              </h3>
+            </Fade>
+          )}
+          {sketchID < 2 && (
+            <Fade direction="up" duration={3000}>
+              <h3>
+                Junior Software Engineer<br></br>Try moving your mouse!
+              </h3>
+            </Fade>
+          )}
           <hr />
           {/* <Fade bottom duration={2000}>
               <ul className="social">
