@@ -22,6 +22,7 @@ class SimpleOrbits extends React.Component {
     let height = p.windowHeight;
     const sun = { size: 100, colour: "yellow" };
     const earth = { size: 50, colour: "blue" };
+    const bigMoon = { size: 25, colour: "white" };
     const moon = { size: 10, colour: "white" };
     const miniMoon = { size: 5, colour: "light blue" };
     const mars = { size: 40, colour: "red" };
@@ -35,7 +36,7 @@ class SimpleOrbits extends React.Component {
       p.background(20, 150);
 
       p.push();
-      p.translate(p.mouseX, p.mouseY);
+      p.translate(width / 2, height / 2);
       drawBody(sun);
 
       p.push();
@@ -77,8 +78,19 @@ class SimpleOrbits extends React.Component {
       p.pop();
 
       p.push();
-      p.translate((4 * width) / 5, height / 4);
+      p.translate(p.mouseX, p.mouseY);
       drawBody(earth);
+
+      p.push();
+      p.rotate(-p.frameCount / 50);
+      p.translate(-100, 0);
+
+      drawBody(bigMoon);
+      p.rotate(-p.frameCount / 30);
+      p.translate(30, 0);
+
+      drawBody(miniMoon);
+      p.pop();
 
       p.push();
       p.rotate(-p.frameCount / 50);

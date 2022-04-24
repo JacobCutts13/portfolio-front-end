@@ -14,6 +14,7 @@ class GameOfLife extends React.Component {
   }
 
   Sketch = (p: p5): void => {
+    let locked = false;
     let population: number[][] = [];
     const cellSize = 20;
     const liveRate = 0.1;
@@ -34,8 +35,9 @@ class GameOfLife extends React.Component {
       p.stroke(30);
 
       drawCells();
-
-      updateCells();
+      if (!locked) {
+        updateCells();
+      }
     };
 
     function createPop(popSize: { col: number; row: number }): void {
@@ -95,6 +97,26 @@ class GameOfLife extends React.Component {
         left + right + up + down + upLeft + upRight + downLeft + downRight;
       return liveNeighbours;
     }
+
+    p.mousePressed = () => {
+      locked = true;
+      const mouseRow = Math.floor(p.mouseY / cellSize);
+      const mouseCol = Math.floor(p.mouseX / cellSize);
+      population[mouseRow][mouseCol] = 1;
+    };
+
+    p.mouseDragged = () => {
+      if (locked) {
+        const mouseRow = Math.floor(p.mouseY / cellSize);
+        const mouseCol = Math.floor(p.mouseX / cellSize);
+        population[mouseRow][mouseCol] = 1;
+      }
+    };
+
+    p.mouseReleased = () => {
+      locked = false;
+    };
+
     p.windowResized = () => {
       p.resizeCanvas(p.windowWidth, p.windowHeight);
       width = p.windowWidth;
