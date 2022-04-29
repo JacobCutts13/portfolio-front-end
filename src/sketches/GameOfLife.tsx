@@ -130,6 +130,10 @@ class GameOfLife extends React.Component {
     this.myP5 = new p5(this.Sketch, node);
   }
 
+  componentWillUnmount(): void {
+    this.myP5.remove();
+  }
+
   render(): JSX.Element {
     return <div ref={this.myRef}></div>;
   }
