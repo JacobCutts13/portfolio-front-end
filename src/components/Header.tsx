@@ -5,28 +5,43 @@ import SimpleOrbits from "../sketches/SimpleOrbits";
 import RayCast from "../sketches/rayCast/RayCast";
 import Fireworks from "../sketches/fireworks/Fireworks";
 
+interface IPickSketch {
+  name: string;
+  isClick: boolean;
+}
+
 export default function Header(): JSX.Element {
-  const [sketchID, setSketchID] = useState<number>(-1);
+  const mySketches: IPickSketch[] = [
+    { name: "Simple Orbits", isClick: false },
+    { name: "Game Of Life", isClick: true },
+    { name: "Ray Cast", isClick: false },
+    { name: "Fireworks", isClick: true },
+  ];
+
+  const [sketch, setSketch] = useState<IPickSketch>({
+    name: "Simple Orbits",
+    isClick: false,
+  }); //store current and previous sketch to remove
 
   useEffect(() => {
     pickRandomSketch(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const pickRandomSketch = () => {
-    let newSketchID = Math.floor(Math.random() * 4);
-    while (newSketchID === sketchID) {
-      newSketchID = Math.floor(Math.random() * 4); //reroll
+    let newSketch = mySketches[Math.floor(Math.random() * mySketches.length)]; //pick random sketch
+    while (newSketch.name === sketch.name) {
+      newSketch = mySketches[Math.floor(Math.random() * mySketches.length)]; //reroll until different sketchid
     }
-    setSketchID(newSketchID);
+    setSketch(newSketch); //set new sketch
   };
 
   return (
     <header id="Header">
       <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
-        {sketchID === 0 && <SimpleOrbits />}
-        {sketchID === 2 && <RayCast />}
-        {sketchID === 1 && <GameOfLife />}
-        {sketchID === 3 && <Fireworks />}
+        {sketch.name === "Simple Orbits" && <SimpleOrbits />}
+        {sketch.name === "Ray Cast" && <RayCast />}
+        {sketch.name === "Game Of Life" && <GameOfLife />}
+        {sketch.name === "Fireworks" && <Fireworks />}
       </div>
       <nav id="nav-wrap">
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
@@ -74,7 +89,7 @@ export default function Header(): JSX.Element {
           <Fade direction="up" duration={2000}>
             <h1 className="responsive-headline">Jacob Cutts</h1>
           </Fade>
-          {sketchID % 2 === 1 && (
+          {sketch.isClick && (
             <Fade direction="up" duration={3000} cascade={true}>
               <h3>
                 Junior Software Engineer<br></br>Try clicking!
@@ -85,7 +100,7 @@ export default function Header(): JSX.Element {
               </div>
             </Fade>
           )}
-          {sketchID % 2 === 0 && (
+          {!sketch.isClick && (
             <Fade direction="up" duration={3000} cascade={true}>
               <h3>
                 Junior Software Engineer<br></br>Try moving your mouse!
