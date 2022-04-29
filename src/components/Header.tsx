@@ -19,7 +19,7 @@ export default function Header(): JSX.Element {
   ];
 
   const [sketch, setSketch] = useState<IPickSketch>({
-    name: "Simple Orbits",
+    name: "",
     isClick: false,
   }); //store current and previous sketch to remove
 
