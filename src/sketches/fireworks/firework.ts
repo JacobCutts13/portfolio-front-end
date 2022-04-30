@@ -17,7 +17,6 @@ export default class Firework {
   public particles: Particle[];
   public p: p5;
   public age: number;
-  public ageExploded: number;
   public alive: boolean;
   public exploded: boolean;
   public firework: Particle;
@@ -35,10 +34,9 @@ export default class Firework {
     this.colour = this.p.random(colours);
     this.particles = []; //array to keep track of explosion particles
     this.age = 0;
-    this.ageExploded = 0;
     this.alive = true;
     this.exploded = exploded;
-    const initialSpeed = -Math.sqrt(2 * 0.2 * height); //max initial speed
+    const initialSpeed = -Math.sqrt(2 * 0.18 * height); //max initial speed
     this.firework = this.exploded
       ? new Particle(this.p, x, y, this.p.random(-1, 1), 0, this.colour)
       : new Particle(
@@ -76,15 +74,14 @@ export default class Firework {
 
   show(): void {
     if (!this.exploded) {
-      this.firework.show(this.age);
+      this.firework.show("white");
     }
     for (const i in this.particles) {
-      this.particles[i].show(this.age - this.ageExploded);
+      this.particles[i].show();
     }
   }
 
   explode(): void {
-    this.ageExploded = this.age;
     for (let i = 0; i < 50; i++) {
       const velocity = p5.Vector.random2D().mult(
         this.p.random(-explosionSpeed / 2, explosionSpeed)

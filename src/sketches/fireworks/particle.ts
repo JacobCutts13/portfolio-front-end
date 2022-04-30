@@ -7,6 +7,7 @@ export default class Particle {
   public acc: p5.Vector;
   public p: p5;
   public colour: string;
+  public timeLeft: number;
   constructor(
     p: p5,
     x: number,
@@ -20,6 +21,7 @@ export default class Particle {
     this.vel = p.createVector(vx, vy);
     this.acc = p.createVector(0, 0);
     this.colour = colour;
+    this.timeLeft = p.random(50, 100);
   }
 
   applyForce(force: p5.Vector): void {
@@ -28,16 +30,24 @@ export default class Particle {
 
   update(): void {
     this.vel.add(this.acc);
+    this.vel.add(p5.Vector.random2D().mult(0.15)); //fake turbulence
     this.pos.add(this.vel);
     this.acc.mult(0); //reset acceleration each time
   }
 
-  show(age: number): void {
-    const alpha = Math.round(this.p.map(age, 0, 100, 255, 0, true));
+  show(colour?: string): void {
+    const alpha = this.p.round(this.p.map(this.timeLeft, 100, 0, 255, 0, true));
     const alphaCol = this.colour + this.p.hex(alpha, 2);
+    const chosenColour = colour ? colour : alphaCol;
     this.p.push();
-    this.p.stroke(alphaCol);
-    this.p.point(this.pos.x, this.pos.y);
+    this.p.stroke(chosenColour);
+    this.p.strokeWeight(1);
+    this.p.line(
+      this.pos.x,
+      this.pos.y,
+      this.pos.x - 2 * this.vel.x,
+      this.pos.y - 2 * this.vel.y
+    );
     this.p.pop();
   }
 }
