@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 import GameOfLife from "../sketches/GameOfLife";
 import SimpleOrbits from "../sketches/SimpleOrbits";
 import RayCast from "../sketches/rayCast/RayCast";
@@ -12,9 +13,9 @@ interface IPickSketch {
 
 export default function Header(): JSX.Element {
   const mySketches: IPickSketch[] = [
-    { name: "Simple Orbits", isClick: false },
-    { name: "Game Of Life", isClick: true },
-    { name: "Ray Cast", isClick: false },
+    { name: "Simple-Orbits", isClick: false },
+    { name: "Game-Of-Life", isClick: true },
+    { name: "Ray-Cast", isClick: false },
     { name: "Fireworks", isClick: true },
   ];
 
@@ -38,9 +39,9 @@ export default function Header(): JSX.Element {
   return (
     <header id="Header">
       <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
-        {sketch.name === "Simple Orbits" && <SimpleOrbits />}
-        {sketch.name === "Ray Cast" && <RayCast />}
-        {sketch.name === "Game Of Life" && <GameOfLife />}
+        {sketch.name === "Simple-Orbits" && <SimpleOrbits />}
+        {sketch.name === "Ray-Cast" && <RayCast />}
+        {sketch.name === "Game-Of-Life" && <GameOfLife />}
         {sketch.name === "Fireworks" && <Fireworks />}
       </div>
       <nav id="nav-wrap">
@@ -95,7 +96,7 @@ export default function Header(): JSX.Element {
                 Junior Software Engineer<br></br>Try clicking!
               </h3>
               <div>
-                <button onClick={() => pickRandomSketch()}>This Sketch</button>
+                <Link to={sketch.name} onClick={() => pickRandomSketch()} className="this-sketch">This Sketch</Link>
                 <button onClick={() => pickRandomSketch()}>New Sketch</button>
               </div>
             </Fade>
@@ -106,7 +107,7 @@ export default function Header(): JSX.Element {
                 Junior Software Engineer<br></br>Try moving your mouse!
               </h3>
               <div>
-                <button onClick={() => pickRandomSketch()}>This Sketch</button>
+                <Link to={sketch.name} onClick={() => pickRandomSketch()} className="this-sketch">This Sketch</Link>
                 <button onClick={() => pickRandomSketch()}>New Sketch</button>
               </div>
             </Fade>
