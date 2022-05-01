@@ -1,7 +1,7 @@
 import { IProject } from "./Projects";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom"
-import ProjectNameToPath from "../utils/projectNameToPath"
+import { Link } from "react-router-dom";
+import ProjectNameToPath from "../utils/projectNameToPath";
 
 interface IProps {
   project: IProject;
@@ -11,7 +11,7 @@ interface IProps {
 
 export default function Project(Props: IProps): JSX.Element {
   const opacityPerm = Props.hoverID === Props.project.id ? 0.6 : 1;
-  const path = ProjectNameToPath(Props.project.title)
+  const path = ProjectNameToPath(Props.project.title);
 
   return (
     <>
