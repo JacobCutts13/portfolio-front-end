@@ -1,5 +1,7 @@
 import { IProject } from "./Projects";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import ProjectNameToPath from "../utils/projectNameToPath";
 
 interface IProps {
   project: IProject;
@@ -9,6 +11,8 @@ interface IProps {
 
 export default function Project(Props: IProps): JSX.Element {
   const opacityPerm = Props.hoverID === Props.project.id ? 0.6 : 1;
+  const path = ProjectNameToPath(Props.project.title);
+
   return (
     <>
       <motion.div
@@ -22,15 +26,17 @@ export default function Project(Props: IProps): JSX.Element {
       >
         <div className="project-img" key={Props.project.id.toString() + "img"}>
           <motion.div animate={{ opacity: opacityPerm }}>
-            <img
-              src={"/images/" + Props.project.image}
-              alt=""
-              id={Props.project.id.toString()}
-              onMouseOver={(e) =>
-                Props.setHoverID(parseInt(e.currentTarget.id))
-              }
-              onMouseOut={() => Props.setHoverID(0)}
-            />
+            <Link to={path}>
+              <img
+                src={"/images/" + Props.project.image}
+                alt=""
+                id={Props.project.id.toString()}
+                onMouseOver={(e) =>
+                  Props.setHoverID(parseInt(e.currentTarget.id))
+                }
+                onMouseOut={() => Props.setHoverID(0)}
+              />
+            </Link>
           </motion.div>
 
           {Props.hoverID === Props.project.id && (

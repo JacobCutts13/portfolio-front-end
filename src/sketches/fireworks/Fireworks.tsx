@@ -44,7 +44,11 @@ class Fireworks extends React.Component {
       }
     };
     p.mousePressed = () => {
-      fireworks.push(new Firework(p, true, p.mouseX, p.mouseY, width, height));
+      if (p.mouseY < height) {
+        fireworks.push(
+          new Firework(p, true, p.mouseX, p.mouseY, width, height)
+        );
+      }
     };
 
     p.windowResized = () => {
@@ -61,6 +65,7 @@ class Fireworks extends React.Component {
   }
 
   componentWillUnmount(): void {
+    console.log("unmounting Fireworks");
     this.myP5.remove();
   }
 

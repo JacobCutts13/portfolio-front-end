@@ -135,6 +135,33 @@ header button:hover {
    background: #0000ff;
 }
 
+header .this-sketch {
+   border-radius: 12px;
+   margin: 0px 5px;
+   background: #1f68e1;
+   font: 16px/30px 'opensans-bold', sans-serif;
+   display: inline-block;
+	text-decoration: none;
+   letter-spacing: 0;
+   color: #fff;
+	padding: 12px 20px;
+	margin-bottom: 18px;
+   border: none;
+   cursor: pointer;
+   height: auto;
+}
+
+header .project-nav {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+header .about-comments {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
 /* primary navigation
 --------------------------------------------------------------------- */
 #nav-wrap ul, #nav-wrap li, #nav-wrap a {

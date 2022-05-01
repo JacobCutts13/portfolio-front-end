@@ -29,8 +29,8 @@ class RayCast extends React.Component {
       p.textSize(20);
 
       createHiders(nHiders);
-      const nwalls = Math.floor(width / 1000);
-      const npoly = Math.floor(width / 300);
+      const nwalls = Math.floor(width / 500) + 1;
+      const npoly = Math.floor(width / 300) + 1;
       createWalls(nwalls, npoly);
 
       const nrays = 1000;

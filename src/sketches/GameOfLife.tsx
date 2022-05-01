@@ -99,10 +99,12 @@ class GameOfLife extends React.Component {
     }
 
     p.mousePressed = () => {
-      locked = true;
-      const mouseRow = Math.floor(p.mouseY / cellSize);
-      const mouseCol = Math.floor(p.mouseX / cellSize);
-      population[mouseRow][mouseCol] = 1;
+      if (p.mouseY < height && p.mouseX < width) {
+        locked = true;
+        const mouseRow = Math.floor(p.mouseY / cellSize);
+        const mouseCol = Math.floor(p.mouseX / cellSize);
+        population[mouseRow][mouseCol] = 1;
+      }
     };
 
     p.mouseDragged = () => {
