@@ -1,5 +1,7 @@
-# Simplified CRA starter
+#This is a PERN full stack app built to showcase my projects
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+Deployed app: https://jacobcuttsprojects.netlify.app
 
-> This is part of Academy's technical curriculum for **The Mark**. All parts of that curriculum, including this project, are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>
+Backend containing db and API: https://jc13-portfolio.herokuapp.com/
+
+Feel free to reach out if you have any questions about the app or any of my projects.
