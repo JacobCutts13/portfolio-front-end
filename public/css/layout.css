@@ -165,7 +165,7 @@ header .about-comments {
 header .project-banner {
    display: inline-block;
    vertical-align: bottom;
-   margin: 10vh auto;
+   margin: 5vh auto;
    width: 85%;
    padding-bottom: 30px;
    text-align: center;
@@ -272,6 +272,7 @@ ul#nav-project {
    min-height: 48px;
    width: auto;
    text-align: left;
+   margin: 5px;
 }
 ul#nav li {
    position: relative;
@@ -302,6 +303,9 @@ ul#nav li a {
 ul#nav li a:active { background-color: transparent !important; }
 ul#nav li.current a { color: #fe6928; }
 
+#nav-project .home-link {
+   font-size: 28px;
+}
 
 /* ------------------------------------------------------------------ */
 /* c. About Section
