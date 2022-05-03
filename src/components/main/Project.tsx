@@ -1,7 +1,7 @@
 import { IProject } from "./Projects";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import ProjectNameToPath from "../utils/projectNameToPath";
+import ProjectNameToPath from "../../utils/projectNameToPath";
 
 interface IProps {
   project: IProject;

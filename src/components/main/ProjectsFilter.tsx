@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { IProject } from "./Projects";
-import findUniqueLanguages from "../utils/uniqueLanguages";
+import findUniqueLanguages from "../../utils/uniqueLanguages";
 
 interface IProps {
   filter: string;

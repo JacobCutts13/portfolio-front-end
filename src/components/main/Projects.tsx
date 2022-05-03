@@ -40,7 +40,9 @@ function Projects(): JSX.Element {
             <hr />
           </Fade>
           <Fade direction="up" duration={3000}>
-            <p>A collection of my projects</p>
+            <p>
+              A collection of my projects <br></br> Click to view
+            </p>
           </Fade>
         </div>
       </div>

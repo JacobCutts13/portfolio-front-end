@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
-import GameOfLife from "../sketches/GameOfLife";
-import SimpleOrbits from "../sketches/SimpleOrbits";
-import RayCast from "../sketches/rayCast/RayCast";
-import Fireworks from "../sketches/fireworks/Fireworks";
+import GameOfLife from "../../sketches/GameOfLife";
+import SimpleOrbits from "../../sketches/SimpleOrbits";
+import RayCast from "../../sketches/rayCast/RayCast";
+import Fireworks from "../../sketches/fireworks/Fireworks";
 
 interface IPickSketch {
   name: string;

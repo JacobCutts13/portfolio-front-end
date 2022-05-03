@@ -1,6 +1,6 @@
-import Header from "./components/Header";
+import Header from "./components/main/Header";
 
-import Projects from "./components/Projects";
+import Projects from "./components/main/Projects";
 
 function MainApp(): JSX.Element {
   return (

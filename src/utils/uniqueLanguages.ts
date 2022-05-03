@@ -1,4 +1,4 @@
-import { IProject } from "../components/Projects";
+import { IProject } from "../components/main/Projects";
 
 export default function findUniqueLanguages(projects: IProject[]): string[] {
   const extractLanguages = projects.map(
