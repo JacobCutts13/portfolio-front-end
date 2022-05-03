@@ -182,58 +182,6 @@ header .project-nav-button {
    margin: 5px;   
 }
 
-/* like button
---------------------------------------------------------------------- */
-.animated-like-container {
-   height: 100px;
-   margin-left: 45.4%;
-   margin-right: 50%;
-   margin-top: 10px
-}
-
-.animated-like-button {
-	width: 50px;
-	height: 50px;
-   position: relative;
-	margin-top: 0px;
-	margin-left: 0px;
-	border-radius: 5px;
-	background: none;
-	cursor: pointer;
-	transition: background 0.5s ease;
-}
-
-.active#animated-like::before,.active#animated-like::after{
-	background: #1f68e1 !important;
-}
-#animated-like {
-    width: 100px;
-    height: 80px;
-    transition: background 0.5s ease;
-}
-#animated-like::before,
-#animated-like::after {
-	transition: background 0.5s ease;
-    position: absolute;
-    content: "";
-    left: 50px;
-    top: 0;
-    width: 50px;
-    height: 80px;
-    background: dimgrey;
-    border-radius: 50px 50px 0 0;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
-}
-#animated-like::after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin :100% 100%;
-}
-button.animated-like-button:hover {
-   background: none;
-}
-
 
 /* primary navigation
 --------------------------------------------------------------------- */
