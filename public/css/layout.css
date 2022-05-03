@@ -30,7 +30,7 @@ body { background: #ebeeee; }
 
 header {
    position: relative;
-   height: 800px;
+   height: 100vh;
    min-height: 500px;
    width: 100%;
    background: none;
@@ -162,6 +162,72 @@ header .about-comments {
    align-items: center;
 }
 
+header .project-banner {
+   display: inline-block;
+   vertical-align: bottom;
+   margin: 0 auto;
+   width: 85%;
+   padding-bottom: 30px;
+   text-align: center;
+   z-index: 2;
+}
+header .project-about-comments {
+   display: flex;
+   justify-content: space-between;
+   margin: 0px 35%;
+}
+
+header .project-nav-button {
+   width: 100%;
+   margin: 5px;   
+}
+
+/* like button
+--------------------------------------------------------------------- */
+
+.animated-like-button {
+	width: 50px;
+	height: 50px;
+   top:50%;
+    position: fixed;
+	left: 50%;
+	margin-top: -45px;
+	margin-left: -50px;
+	border-radius: 5px;
+	background: none;
+	cursor: pointer;
+	transition: background 0.5s ease;
+}
+
+.active#animated-like::before,.active#animated-like::after{
+	background: #1f68e1 !important;
+}
+#animated-like {
+    width: 100px;
+    height: 80px;
+    transition: background 0.5s ease;
+}
+#animated-like::before,
+#animated-like::after {
+	transition: background 0.5s ease;
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: dimgrey;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+#animated-like::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}
+
+
 /* primary navigation
 --------------------------------------------------------------------- */
 #nav-wrap ul, #nav-wrap li, #nav-wrap a {
@@ -194,6 +260,11 @@ ul#nav {
 
    /* center align the menu */
    text-align: center;
+}
+ul#nav-project {
+   min-height: 48px;
+   width: auto;
+   text-align: left;
 }
 ul#nav li {
    position: relative;

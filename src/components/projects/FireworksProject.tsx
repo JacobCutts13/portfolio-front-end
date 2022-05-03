@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 import Fireworks from "../../sketches/fireworks/Fireworks";
 
 export default function FireworksProject(): JSX.Element {
@@ -9,21 +10,41 @@ export default function FireworksProject(): JSX.Element {
           <Fireworks />
         </div>
 
-        <Link to="/">Home</Link>
+        <nav id="nav-wrap">
+          <ul id="nav-project" className="nav">
 
-        {/* <Fade direction="up">
-          <div className="project-nav">
-            <div className="about-comments">
-              <a className="smoothscroll" href="#About">
-                About
-              </a>
-              <a className="smoothscroll" href="#Comments">
-                Comments
-              </a>
+            <li>
+            <Link to="/">Home</Link>
+            </li>
+            
+          </ul>
+        </nav>
+
+
+        <div className="row project-banner">
+        <div className="banner-text">
+        
+          <Fade direction="up">
+            <div className="project-about-comments">
+            <a className="project-nav-button" href="#About">
+                <button className="project-nav-button">  About  </button>
+            </a>
+            <a className="project-nav-button" href="#Comments">
+                <button className="project-nav-button">Comments</button>
+            </a>
             </div>
-          </div>
-        </Fade> */}
+          </Fade>
+
+          <button id='animated-like' className='animated-like-button' onClick={() => console.log("like")}></button>
+        </div>
+      </div>
+
       </header>
+
+      <section id="test">
+        <h1>Test</h1>
+        <button id='animated-like' className='animated-like-button' onClick={() => console.log("like")}></button>
+      </section>
     </>
   );
 }
