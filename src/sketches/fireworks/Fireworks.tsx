@@ -15,7 +15,7 @@ class Fireworks extends React.Component {
   }
 
   Sketch = (p: p5): void => {
-    const fireworks: Firework[] = [];
+    let fireworks: Firework[] = [];
     const f = 0.03; //chance of spawning a firework each frame
     let width = p.windowWidth;
     let height = p.windowHeight;
@@ -33,14 +33,13 @@ class Fireworks extends React.Component {
         fireworks.push(new Firework(p, false, 0, 0, width, height));
       }
 
+      //remove dead fireworks
+      fireworks = fireworks.filter(f => f.alive);
+
       for (const i in fireworks) {
         fireworks[i].update();
         fireworks[i].show();
 
-        //remove firework if dead
-        if (!fireworks[i].alive) {
-          fireworks.splice(parseInt(i), 1);
-        }
       }
     };
     p.mousePressed = () => {

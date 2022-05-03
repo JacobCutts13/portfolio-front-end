@@ -4,7 +4,7 @@ import Fireworks from "../../sketches/fireworks/Fireworks";
 export default function FireworksProject(): JSX.Element {
   return (
     <>
-      <section id="Header">
+      <header id="Header">
         <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
           <Fireworks />
         </div>
@@ -23,7 +23,7 @@ export default function FireworksProject(): JSX.Element {
             </div>
           </div>
         </Fade> */}
-      </section>
+      </header>
     </>
   );
 }
