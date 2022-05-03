@@ -12,38 +12,42 @@ export default function FireworksProject(): JSX.Element {
 
         <nav id="nav-wrap">
           <ul id="nav-project" className="nav">
-
             <li>
-            <Link to="/">Home</Link>
+              <Link to="/">Home</Link>
             </li>
-            
           </ul>
         </nav>
 
-
         <div className="row project-banner">
-        <div className="banner-text">
-        
-          <Fade direction="up">
-            <div className="project-about-comments">
-            <a className="project-nav-button" href="#About">
-                <button className="project-nav-button">  About  </button>
-            </a>
-            <a className="project-nav-button" href="#Comments">
-                <button className="project-nav-button">Comments</button>
-            </a>
+          <div className="banner-text">
+            <Fade direction="up">
+              <div className="project-about-comments">
+                <a className="project-nav-button" href="#About">
+                  <button className="project-nav-button"> About </button>
+                </a>
+                <a className="project-nav-button" href="#Comments">
+                  <button className="project-nav-button">Comments</button>
+                </a>
+              </div>
+            </Fade>
+            <div className="animated-like-container">
+              <button
+                id="animated-like"
+                className="animated-like-button"
+                onClick={() => console.log("like")}
+              ></button>
             </div>
-          </Fade>
-
-          <button id='animated-like' className='animated-like-button' onClick={() => console.log("like")}></button>
+          </div>
         </div>
-      </div>
-
       </header>
 
       <section id="test">
         <h1>Test</h1>
-        <button id='animated-like' className='animated-like-button' onClick={() => console.log("like")}></button>
+        <button
+          id="animated-like"
+          className="animated-like-button"
+          onClick={() => console.log("like")}
+        ></button>
       </section>
     </>
   );

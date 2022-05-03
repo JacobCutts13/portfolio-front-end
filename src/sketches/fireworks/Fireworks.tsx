@@ -34,12 +34,11 @@ class Fireworks extends React.Component {
       }
 
       //remove dead fireworks
-      fireworks = fireworks.filter(f => f.alive);
+      fireworks = fireworks.filter((f) => f.alive);
 
       for (const i in fireworks) {
         fireworks[i].update();
         fireworks[i].show();
-
       }
     };
     p.mousePressed = () => {
