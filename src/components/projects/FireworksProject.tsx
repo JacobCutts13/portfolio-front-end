@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import Fireworks from "../../sketches/fireworks/Fireworks";
+import likeJQuery from "../../jquery/likeJQuery";
 
 export default function FireworksProject(): JSX.Element {
+  useEffect(() => likeJQuery(), []); //run script to animate like button
+
   return (
     <>
       <header id="Header">
@@ -36,7 +40,7 @@ export default function FireworksProject(): JSX.Element {
               <button
                 id="animated-like"
                 className="animated-like-button"
-                onClick={() => console.log("like")}
+                onClick={() => console.log("liked")}
               ></button>
             </div>
           </div>
