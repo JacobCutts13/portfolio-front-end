@@ -26,7 +26,7 @@ export default function Project(Props: IProps): JSX.Element {
       >
         <div className="project-img" key={Props.project.id.toString() + "img"}>
           <motion.div animate={{ opacity: opacityPerm }}>
-            <Link to={path}>
+            <Link to={path} onClick={() => window.scrollTo(0, 0)}>
               <img
                 src={"/images/" + Props.project.image}
                 alt=""

@@ -50,7 +50,7 @@ export default function FireworksProject(): JSX.Element {
       <section id="about">
         <iframe
           title="Fireworks Journal"
-          src="https://v1.embednotion.com/embed/04a7e637ea674ef5b0db4f7ae809153d"
+          src="https://v1.embednotion.com/embed/5f5e1bfc7fb049089fa8e307866839e8"
         ></iframe>
       </section>
 
