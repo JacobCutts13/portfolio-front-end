@@ -49,8 +49,8 @@ export default function FireworksProject(): JSX.Element {
 
       <section id="about">
         <iframe
-          title="fireworks-about"
-          src="https://v1.embednotion.com/embed/9022da6e4c85461286d70b7dfcbe19d3"
+          title="Fireworks Journal"
+          src="https://v1.embednotion.com/embed/04a7e637ea674ef5b0db4f7ae809153d"
         ></iframe>
       </section>
 
