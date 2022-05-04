@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import Fireworks from "../../sketches/fireworks/Fireworks";
+import likeJQuery from "../../jquery/likeJQuery";
 
 export default function FireworksProject(): JSX.Element {
+  useEffect(() => likeJQuery(), []); //run script to animate like button
+
   return (
     <>
       <header id="Header">
@@ -25,10 +29,10 @@ export default function FireworksProject(): JSX.Element {
             <Fade direction="up">
               <div className="project-about-comments">
                 <a className="project-nav-button" href="#about">
-                  <button className="project-nav-button"> About </button>
+                  <button className="project-nav-button">About</button>
                 </a>
-                <a className="project-nav-button" href="#comments">
-                  <button className="project-nav-button">Comments</button>
+                <a className="project-nav-button" href="#discussion">
+                  <button className="project-nav-button">Discussion</button>
                 </a>
               </div>
             </Fade>
@@ -36,7 +40,7 @@ export default function FireworksProject(): JSX.Element {
               <button
                 id="animated-like"
                 className="animated-like-button"
-                onClick={() => console.log("like")}
+                onClick={() => console.log("liked")}
               ></button>
             </div>
           </div>
@@ -50,7 +54,14 @@ export default function FireworksProject(): JSX.Element {
         ></iframe>
       </section>
 
-      <section id="comments"></section>
+      <section id="discussion">
+        <Fade direction="right" duration={2000}>
+          <div className="row">
+            <h1>Discussion</h1>
+            <p>Coming soon!</p>
+          </div>
+        </Fade>
+      </section>
     </>
   );
 }
