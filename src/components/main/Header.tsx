@@ -95,7 +95,7 @@ export default function Header(): JSX.Element {
               <h3>
                 Junior Software Engineer<br></br>Try clicking!
               </h3>
-              <div>
+              <div className="sketch-buttons-container">
                 <Link
                   to={sketch.name}
                   onClick={() => pickRandomSketch()}
@@ -112,7 +112,7 @@ export default function Header(): JSX.Element {
               <h3>
                 Junior Software Engineer<br></br>Try moving your mouse!
               </h3>
-              <div>
+              <div className="sketch-buttons-container">
                 <Link
                   to={sketch.name}
                   onClick={() => pickRandomSketch()}

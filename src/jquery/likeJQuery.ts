@@ -1,10 +1,13 @@
 export default function likeJQuery(): void {
-  console.log("running like query");
   //like button
   const scaleCurve = mojs.easing.path(
     "M0,100 L25,99.9999983 C26.2328835,75.0708847 19.7847843,0 100,0"
   );
   const el = document.querySelector<HTMLElement>(".animated-like-button");
+
+  $(".animated-like-button")
+    .delay(2000)
+    .fadeIn(3000, () => console.log("fade in"));
 
   // mo.js timeline obj
   const timeline = new mojs.Timeline();

@@ -29,10 +29,10 @@ export default function FireworksProject(): JSX.Element {
             <Fade direction="up">
               <div className="project-about-comments">
                 <a className="project-nav-button" href="#about">
-                  <button className="project-nav-button"> About </button>
+                  <button className="project-nav-button">About</button>
                 </a>
-                <a className="project-nav-button" href="#comments">
-                  <button className="project-nav-button">Comments</button>
+                <a className="project-nav-button" href="#discussion">
+                  <button className="project-nav-button">Discussion</button>
                 </a>
               </div>
             </Fade>
@@ -54,7 +54,14 @@ export default function FireworksProject(): JSX.Element {
         ></iframe>
       </section>
 
-      <section id="comments"></section>
+      <section id="discussion">
+        <Fade direction="right" duration={2000}>
+          <div className="row">
+            <h1>Discussion</h1>
+            <p>Coming soon!</p>
+          </div>
+        </Fade>
+      </section>
     </>
   );
 }

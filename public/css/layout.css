@@ -182,6 +182,9 @@ header .project-nav-button {
    margin: 5px;   
 }
 
+header .sketch-buttons-container {
+   margin-top: 20px;
+}
 
 /* primary navigation
 --------------------------------------------------------------------- */
