@@ -21,7 +21,7 @@ h2 {
 }
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 0.45fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
 
 .project {
@@ -69,6 +69,16 @@ iframe {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+.galaxy-sim-image-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+}
+
+.galaxy-sim-image {
+  position: relative;
 }
 
 /* like button
