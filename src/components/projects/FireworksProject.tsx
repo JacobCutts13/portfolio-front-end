@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { Link as SmoothLink } from "react-scroll";
@@ -6,9 +7,23 @@ import Fireworks from "../../sketches/fireworks/Fireworks";
 import likeJQuery from "../../jquery/likeJQuery";
 
 export default function FireworksProject(): JSX.Element {
+  const [positiveLike, setpositiveLike] = useState<boolean>(true);
+
   useEffect(() => {
     likeJQuery(); //run script to animate like button
   }, []);
+
+  const postLike = async () => {
+    const ApiUrl = "https://jc13-portfolio.herokuapp.com/projects/6/likes";
+    const value = positiveLike ? 1 : -1;
+    try {
+      axios
+        .post(ApiUrl, { value: value })
+        .then(() => setpositiveLike(!positiveLike));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -55,7 +70,7 @@ export default function FireworksProject(): JSX.Element {
               <button
                 id="animated-like"
                 className="animated-like-button"
-                onClick={() => console.log("liked")}
+                onClick={postLike}
               ></button>
             </div>
           </div>
