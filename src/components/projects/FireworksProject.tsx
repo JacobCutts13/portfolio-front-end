@@ -82,7 +82,7 @@ export default function FireworksProject(): JSX.Element {
                 onClick={postLike}
               ></button>
             </div>
-            <h2>{totalLikes}</h2>
+            <h3>{totalLikes}</h3>
           </div>
         </div>
       </header>

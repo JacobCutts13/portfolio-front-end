@@ -41,9 +41,11 @@ export default function Project(Props: IProps): JSX.Element {
 
           {Props.hoverID === Props.project.id && (
             <>
-              <div className="bottom-left">
+              <div className="top-right">
+                <h3>&hearts; {likes}</h3>
+              </div>
+              <div className="bottom-center">
                 <h1>{Props.project.title}</h1>
-                <p>Likes: {likes}</p>
               </div>
               {/* <div className="bottom-left"><p>{Props.project.summary}</p></div> */}
             </>
