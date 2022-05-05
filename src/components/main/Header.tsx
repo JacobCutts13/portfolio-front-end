@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
+import { Link as SmoothLink} from 'react-scroll'
 import GameOfLife from "../../sketches/GameOfLife";
 import SimpleOrbits from "../../sketches/SimpleOrbits";
 import RayCast from "../../sketches/rayCast/RayCast";
@@ -140,9 +141,9 @@ export default function Header(): JSX.Element {
       </div>
 
       <p className="scrolldown">
-        <a className="smoothscroll" href="#projects">
+        <SmoothLink className="smoothscroll" to="projects" spy={true} smooth={true} duration={800}>
           <i className="icon-down-circle"></i>
-        </a>
+        </SmoothLink>
       </p>
     </header>
   );

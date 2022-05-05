@@ -46,7 +46,7 @@ function Projects(): JSX.Element {
           </Fade>
         </div>
       </div>
-
+         
       <div className="projects-main">
         <Filter
           filter={filter}

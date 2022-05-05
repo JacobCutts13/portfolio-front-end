@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import { Link as SmoothLink } from 'react-scroll'
 import Fireworks from "../../sketches/fireworks/Fireworks";
 import likeJQuery from "../../jquery/likeJQuery";
 
 export default function FireworksProject(): JSX.Element {
-  useEffect(() => likeJQuery(), []); //run script to animate like button
+  useEffect(() => {
+    likeJQuery(); //run script to animate like button
+  }, []); 
 
   return (
     <>
@@ -28,12 +31,12 @@ export default function FireworksProject(): JSX.Element {
           <div className="banner-text">
             <Fade direction="up">
               <div className="project-about-comments">
-                <a className="project-nav-button" href="#about">
+                <SmoothLink className="project-nav-button" to="about" spy={true} smooth={true} duration={500}>
                   <button className="project-nav-button">About</button>
-                </a>
-                <a className="project-nav-button" href="#discussion">
+                </SmoothLink>
+                <SmoothLink className="project-nav-button" to="discussion" spy={true} smooth={true} duration={800}>
                   <button className="project-nav-button">Discussion</button>
-                </a>
+                </SmoothLink>
               </div>
             </Fade>
             <div className="animated-like-container">
