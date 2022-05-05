@@ -5,9 +5,7 @@ export default function likeJQuery(): void {
   );
   const el = document.querySelector<HTMLElement>(".animated-like-button");
 
-  $(".animated-like-button")
-    .delay(2000)
-    .fadeIn(3000, () => console.log("fade in"));
+  $(".animated-like-button").delay(2000).fadeIn(3000);
 
   // mo.js timeline obj
   const timeline = new mojs.Timeline();
