@@ -10,6 +10,7 @@ const projectsExample = [
     image: "galaxy-sim-preview",
     create_date: "2021-05-01T23:00:00.000Z",
     difficulty: 8,
+    likes: 0
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const projectsExample = [
     image: "galaxy-sim-preview",
     create_date: "2021-05-01T23:00:00.000Z",
     difficulty: 8,
+    likes: 0
   },
 ];
 
