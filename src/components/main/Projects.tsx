@@ -13,6 +13,7 @@ export interface IProject {
   image: string;
   create_date: string;
   difficulty: number;
+  likes: number;
 }
 
 function Projects(): JSX.Element {
