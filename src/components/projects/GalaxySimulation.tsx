@@ -39,11 +39,18 @@ export default function GalaxySimulation(): JSX.Element {
     <>
       <header id="Header">
         <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
-            <div className="galaxy-sim-image-container">
-                <img className="galaxy-sim-image" src={tidal_tails} alt="Tidal tails"></img>
-                <img className="galaxy-sim-image" src={parabolic_all} alt="Tidal tails"></img>
-            </div>
-          
+          <div className="galaxy-sim-image-container">
+            <img
+              className="galaxy-sim-image"
+              src={tidal_tails}
+              alt="Tidal tails"
+            ></img>
+            <img
+              className="galaxy-sim-image"
+              src={parabolic_all}
+              alt="Tidal tails"
+            ></img>
+          </div>
         </div>
         <nav id="nav-wrap">
           <ul id="nav-project" className="nav">
