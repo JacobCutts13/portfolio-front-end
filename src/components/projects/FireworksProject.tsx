@@ -8,9 +8,17 @@ import likeJQuery from "../../jquery/likeJQuery";
 
 export default function FireworksProject(): JSX.Element {
   const [positiveLike, setpositiveLike] = useState<boolean>(true);
+  const [totalLikes, setTotalLikes] = useState<number>(0);
 
   useEffect(() => {
     likeJQuery(); //run script to animate like button
+    const getTotalLikes = async () => {
+      axios
+        .get("https://jc13-portfolio.herokuapp.com/projects/6/likes")
+        .then((resp) => setTotalLikes(parseInt(resp.data[0].sum)))
+        .catch((err) => console.log(err));
+    };
+    getTotalLikes();
   }, []);
 
   const postLike = async () => {
@@ -19,6 +27,7 @@ export default function FireworksProject(): JSX.Element {
     try {
       axios
         .post(ApiUrl, { value: value })
+        .then(() => setTotalLikes(totalLikes + value)) //update likes
         .then(() => setpositiveLike(!positiveLike));
     } catch (error) {
       console.error(error);
@@ -73,6 +82,7 @@ export default function FireworksProject(): JSX.Element {
                 onClick={postLike}
               ></button>
             </div>
+            <h2>{totalLikes}</h2>
           </div>
         </div>
       </header>

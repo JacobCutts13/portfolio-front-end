@@ -12,7 +12,7 @@ interface IProps {
 export default function Project(Props: IProps): JSX.Element {
   const opacityPerm = Props.hoverID === Props.project.id ? 0.6 : 1;
   const path = ProjectNameToPath(Props.project.title);
-  const likes = Props.project.likes<0? 0: Props.project.likes;
+  const likes = Props.project.likes < 0 ? 0 : Props.project.likes;
   return (
     <>
       <motion.div
