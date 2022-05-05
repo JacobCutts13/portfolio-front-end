@@ -33,7 +33,7 @@ export default function ProjectsFilter(Props: IProps): JSX.Element {
               className={Props.filter === language ? "active-button" : ""}
               onClick={() => Props.setFilter(language)}
             >
-              {language}
+              {language[0].toUpperCase() + language.slice(1)}
             </button>
           </div>
         ))}

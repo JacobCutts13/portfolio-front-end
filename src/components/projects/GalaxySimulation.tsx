@@ -38,7 +38,15 @@ export default function GalaxySimulation(): JSX.Element {
   return (
     <>
       <header id="Header">
-        <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
+        <div
+          style={{
+            position: "absolute",
+            zIndex: -1,
+            top: 0,
+            left: 0,
+            width: "100%",
+          }}
+        >
           <div className="galaxy-sim-image-container">
             <img
               className="galaxy-sim-image"
@@ -101,7 +109,7 @@ export default function GalaxySimulation(): JSX.Element {
       <section id="about">
         <iframe
           title="Fireworks Journal"
-          src="https://v1.embednotion.com/embed/2ae8ea8893d74aeb830057a39bcbfbda"
+          src="https://v1.embednotion.com/embed/54d03176022f4a09836e2b6b924043cf"
         ></iframe>
       </section>
 

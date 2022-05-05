@@ -72,12 +72,13 @@ iframe {
 }
 
 .galaxy-sim-image-container {
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
 }
 
 .galaxy-sim-image {
-  width: 50vw;
+  position: relative;
 }
 
 /* like button
