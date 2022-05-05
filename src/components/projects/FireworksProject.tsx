@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { Link as SmoothLink } from "react-scroll";
-import Fireworks from "../../sketches/fireworks/Fireworks";
 import likeJQuery from "../../jquery/likeJQuery";
+import Fireworks from "../../sketches/fireworks/Fireworks";
 
 export default function FireworksProject(): JSX.Element {
   const [positiveLike, setpositiveLike] = useState<boolean>(true);
@@ -82,7 +82,7 @@ export default function FireworksProject(): JSX.Element {
                 onClick={postLike}
               ></button>
             </div>
-            <h2>{totalLikes}</h2>
+            <h3>{totalLikes}</h3>
           </div>
         </div>
       </header>
@@ -90,7 +90,7 @@ export default function FireworksProject(): JSX.Element {
       <section id="about">
         <iframe
           title="Fireworks Journal"
-          src="https://v1.embednotion.com/embed/5f5e1bfc7fb049089fa8e307866839e8"
+          src="https://v1.embednotion.com/embed/2ae8ea8893d74aeb830057a39bcbfbda"
         ></iframe>
       </section>
 

@@ -1,3 +1,5 @@
+import mojs from "@aloento/mojs";
+
 export default function likeJQuery(): void {
   //like button
   const scaleCurve = mojs.easing.path(
