@@ -4,6 +4,8 @@ import GameOfLifeProject from "./components/projects/GameOfLifeProject";
 import RayCastProject from "./components/projects/RayCastProject";
 import SimpleOrbitsProject from "./components/projects/SimpleOrbitsProject";
 import GalaxySimulation from "./components/projects/GalaxySimulation";
+import PastebinProject from "./components/projects/PastebinProject";
+import ElectricParticlesProject from "./components/projects/ElectricParticlesProject";
 import MainApp from "./MainApp";
 
 function App(): JSX.Element {
@@ -16,6 +18,11 @@ function App(): JSX.Element {
         <Route path="/Fireworks" element={<FireworksProject />} />
         <Route path="/Ray-Cast" element={<RayCastProject />} />
         <Route path="/Galaxy-Simulation" element={<GalaxySimulation />} />
+        <Route path="/Pastebin" element={<PastebinProject />} />
+        <Route
+          path="/Electric-Particles"
+          element={<ElectricParticlesProject />}
+        />
       </Routes>
     </BrowserRouter>
   );

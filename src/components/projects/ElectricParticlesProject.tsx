@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { Link as SmoothLink } from "react-scroll";
 import likeJQuery from "../../jquery/likeJQuery";
-import Fireworks from "../../sketches/fireworks/Fireworks";
+import ElectricParticles from "../../sketches/ElectricParticles";
 
-export default function FireworksProject(): JSX.Element {
+export default function ElectricParticlesProject(): JSX.Element {
   const [positiveLike, setpositiveLike] = useState<boolean>(true);
   const [totalLikes, setTotalLikes] = useState<number>(0);
 
@@ -14,7 +14,7 @@ export default function FireworksProject(): JSX.Element {
     likeJQuery(); //run script to animate like button
     const getTotalLikes = async () => {
       axios
-        .get("https://jc13-portfolio.herokuapp.com/projects/6/likes")
+        .get("https://jc13-portfolio.herokuapp.com/projects/9/likes")
         .then((resp) => setTotalLikes(parseInt(resp.data[0].sum)))
         .catch((err) => console.log(err));
     };
@@ -22,7 +22,7 @@ export default function FireworksProject(): JSX.Element {
   }, []);
 
   const postLike = async () => {
-    const ApiUrl = "https://jc13-portfolio.herokuapp.com/projects/6/likes";
+    const ApiUrl = "https://jc13-portfolio.herokuapp.com/projects/9/likes";
     const value = positiveLike ? 1 : -1;
     try {
       axios
@@ -38,7 +38,7 @@ export default function FireworksProject(): JSX.Element {
     <>
       <header id="Header">
         <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
-          <Fireworks />
+          <ElectricParticles />
         </div>
 
         <nav id="nav-wrap">
@@ -89,8 +89,8 @@ export default function FireworksProject(): JSX.Element {
 
       <section id="about">
         <iframe
-          title="Fireworks Journal"
-          src="https://v1.embednotion.com/embed/2ae8ea8893d74aeb830057a39bcbfbda"
+          title="Electric Particles Journal"
+          src="https://v1.embednotion.com/embed/2ce8ce56aec34247b17c83af25d0d8bf"
         ></iframe>
       </section>
 
