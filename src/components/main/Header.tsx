@@ -6,6 +6,7 @@ import GameOfLife from "../../sketches/GameOfLife";
 import SimpleOrbits from "../../sketches/SimpleOrbits";
 import RayCast from "../../sketches/rayCast/RayCast";
 import Fireworks from "../../sketches/fireworks/Fireworks";
+import ElectricParticles from "../../sketches/ElectricParticles";
 
 interface IPickSketch {
   name: string;
@@ -18,6 +19,7 @@ export default function Header(): JSX.Element {
     { name: "Game-Of-Life", isClick: true },
     { name: "Ray-Cast", isClick: false },
     { name: "Fireworks", isClick: true },
+    { name: "ElectricParticles", isClick: false },
   ];
 
   const [sketch, setSketch] = useState<IPickSketch>({
@@ -44,6 +46,7 @@ export default function Header(): JSX.Element {
         {sketch.name === "Ray-Cast" && <RayCast />}
         {sketch.name === "Game-Of-Life" && <GameOfLife />}
         {sketch.name === "Fireworks" && <Fireworks />}
+        {sketch.name === "ElectricParticles" && <ElectricParticles />}
       </div>
       <nav id="nav-wrap">
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
