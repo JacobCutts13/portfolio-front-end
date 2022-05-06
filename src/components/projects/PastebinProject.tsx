@@ -53,7 +53,20 @@ export default function PastebinProject(): JSX.Element {
 
         <div className="row project-banner">
           <div className="banner-text">
-            <Fade direction="up">
+            <Fade direction="up" cascade={true} delay={500}>
+              <div className="vist-link">
+                <button className="project-about-comments center">
+                  <a
+                    className="vist"
+                    href="https://spectacular-pothos-9652d0.netlify.app/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Vist
+                  </a>
+                </button>
+              </div>
+
               <div className="project-about-comments">
                 <SmoothLink
                   className="project-nav-button"
