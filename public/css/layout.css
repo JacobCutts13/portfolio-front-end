@@ -186,6 +186,11 @@ header .sketch-buttons-container {
    margin-top: 20px;
 }
 
+header p.like-count {
+   font-size: 36px;
+   text-align: center;
+}
+
 /* primary navigation
 --------------------------------------------------------------------- */
 #nav-wrap ul, #nav-wrap li, #nav-wrap a {

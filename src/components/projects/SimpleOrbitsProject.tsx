@@ -82,7 +82,7 @@ export default function SimpleOrbitsProject(): JSX.Element {
                 onClick={postLike}
               ></button>
             </div>
-            <h3>{totalLikes}</h3>
+            <p className="like-count">{totalLikes}</p>
           </div>
         </div>
       </header>
