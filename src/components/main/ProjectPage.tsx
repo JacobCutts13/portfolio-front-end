@@ -16,7 +16,6 @@ export default function ProjectPage(): JSX.Element {
 
   const project = location.state as IProject;
 
-
   return (
     <>
       <header id="Header">
