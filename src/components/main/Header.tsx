@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import { Link as SmoothLink } from "react-scroll";
+import { IProject } from "./Projects";
 import GameOfLife from "../../sketches/GameOfLife";
 import SimpleOrbits from "../../sketches/SimpleOrbits";
 import RayCast from "../../sketches/rayCast/RayCast";
@@ -11,32 +13,49 @@ import ElectricParticles from "../../sketches/ElectricParticles";
 interface IPickSketch {
   name: string;
   isClick: boolean;
+  id: number;
 }
 
 export default function Header(): JSX.Element {
   const mySketches: IPickSketch[] = [
-    { name: "Simple-Orbits", isClick: false },
-    { name: "Game-Of-Life", isClick: true },
-    { name: "Ray-Cast", isClick: false },
-    { name: "Fireworks", isClick: true },
-    { name: "Electric-Particles", isClick: false },
+    { name: "Simple-Orbits", isClick: false, id: 5 },
+    { name: "Game-Of-Life", isClick: true, id: 3 },
+    { name: "Ray-Cast", isClick: false, id: 4 },
+    { name: "Fireworks", isClick: true, id: 7 },
+    { name: "Electric-Particles", isClick: false, id: 9 },
   ];
 
   const [sketch, setSketch] = useState<IPickSketch>({
     name: "",
     isClick: false,
+    id: 0,
   }); //store current and previous sketch to remove
+  const [sketchInfo, setSketchInfo] = useState<IProject>();
 
   useEffect(() => {
     pickRandomSketch(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const pickRandomSketch = () => {
+  const pickRandomSketch = async () => {
     let newSketch = mySketches[Math.floor(Math.random() * mySketches.length)]; //pick random sketch
     while (newSketch.name === sketch.name) {
       newSketch = mySketches[Math.floor(Math.random() * mySketches.length)]; //reroll until different sketchid
     }
     setSketch(newSketch); //set new sketch
+
+    axios
+      .get(
+        "https://jc13-portfolio.herokuapp.com/projects/" +
+          newSketch.id.toString()
+      )
+      .then((resp) => {
+        console.log(
+          "https://jc13-portfolio.herokuapp.com/projects/" +
+            sketch.id.toString()
+        );
+        setSketchInfo(resp.data[0]);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -89,59 +108,63 @@ export default function Header(): JSX.Element {
         </ul>
       </nav>
 
-      <div className="row banner">
-        <div className="banner-text">
-          <Fade direction="up" duration={2000}>
-            <h1 className="responsive-headline">Jacob Cutts</h1>
-          </Fade>
-          {sketch.isClick && (
-            <Fade direction="up" duration={3000} cascade={true}>
-              <h3>
-                Junior Software Engineer<br></br>Try clicking!
-              </h3>
-              <div className="sketch-buttons-container">
-                <Link
-                  to={sketch.name}
-                  onClick={() => pickRandomSketch()}
-                  className="this-sketch"
-                >
-                  This Sketch
-                </Link>
-                <button onClick={() => pickRandomSketch()}>New Sketch</button>
-              </div>
+      {sketchInfo !== undefined && (
+        <div className="row banner">
+          <div className="banner-text">
+            <Fade direction="up" duration={2000}>
+              <h1 className="responsive-headline">Jacob Cutts</h1>
             </Fade>
-          )}
-          {!sketch.isClick && (
-            <Fade direction="up" duration={3000} cascade={true}>
-              <h3>
-                Junior Software Engineer<br></br>Try moving your mouse!
-              </h3>
-              <div className="sketch-buttons-container">
-                <Link
-                  to={sketch.name}
-                  onClick={() => pickRandomSketch()}
-                  className="this-sketch"
-                >
-                  This Sketch
-                </Link>
-                <button onClick={() => pickRandomSketch()}>New Sketch</button>
-              </div>
-            </Fade>
-          )}
+            {sketch.isClick && (
+              <Fade direction="up" duration={3000} cascade={true}>
+                <h3>
+                  Junior Software Engineer<br></br>Try clicking!
+                </h3>
+                <div className="sketch-buttons-container">
+                  <Link
+                    to="/project"
+                    onClick={() => window.scrollTo(0, 0)}
+                    state={sketchInfo}
+                    className="this-sketch"
+                  >
+                    This Sketch
+                  </Link>
+                  <button onClick={() => pickRandomSketch()}>New Sketch</button>
+                </div>
+              </Fade>
+            )}
+            {!sketch.isClick && (
+              <Fade direction="up" duration={3000} cascade={true}>
+                <h3>
+                  Junior Software Engineer<br></br>Try moving your mouse!
+                </h3>
+                <div className="sketch-buttons-container">
+                  <Link
+                    to="/project"
+                    onClick={() => window.scrollTo(0, 0)}
+                    state={sketchInfo}
+                    className="this-sketch"
+                  >
+                    This Sketch
+                  </Link>
+                  <button onClick={() => pickRandomSketch()}>New Sketch</button>
+                </div>
+              </Fade>
+            )}
 
-          <hr />
-          {/* <Fade direction="up" duration={2000}>
-              <ul className="social">
-                <a href="#projects" className="button btn project-btn">
-                  <i className="fa fa-book"></i>Project
-                </a>
-                <a href="#projects" className="button btn github-btn">
-                  <i className="fa fa-github"></i>Github
-                </a>
-              </ul>
-            </Fade> */}
+            <hr />
+            {/* <Fade direction="up" duration={2000}>
+                  <ul className="social">
+                    <a href="#projects" className="button btn project-btn">
+                      <i className="fa fa-book"></i>Project
+                    </a>
+                    <a href="#projects" className="button btn github-btn">
+                      <i className="fa fa-github"></i>Github
+                    </a>
+                  </ul>
+                </Fade> */}
+          </div>
         </div>
-      </div>
+      )}
 
       <p className="scrolldown">
         <SmoothLink

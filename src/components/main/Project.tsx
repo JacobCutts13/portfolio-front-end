@@ -1,7 +1,6 @@
 import { IProject } from "./Projects";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import ProjectNameToPath from "../../utils/projectNameToPath";
 
 interface IProps {
   project: IProject;
@@ -11,7 +10,6 @@ interface IProps {
 
 export default function Project(Props: IProps): JSX.Element {
   const opacityPerm = Props.hoverID === Props.project.id ? 0.6 : 1;
-  const path = ProjectNameToPath(Props.project.title);
   const likes = Props.project.likes < 0 ? 0 : Props.project.likes;
   return (
     <>
@@ -26,9 +24,13 @@ export default function Project(Props: IProps): JSX.Element {
       >
         <div className="project-img" key={Props.project.id.toString() + "img"}>
           <motion.div animate={{ opacity: opacityPerm }}>
-            <Link to={path} onClick={() => window.scrollTo(0, 0)}>
+            <Link
+              to="/project"
+              onClick={() => window.scrollTo(0, 0)}
+              state={Props.project}
+            >
               <img
-                src={"/images/" + Props.project.image}
+                src={"/images/" + Props.project.thumbnail_image}
                 alt=""
                 id={Props.project.id.toString()}
                 onMouseOver={(e) =>
@@ -42,12 +44,14 @@ export default function Project(Props: IProps): JSX.Element {
           {Props.hoverID === Props.project.id && (
             <>
               <div className="top-right">
-                <h3>&hearts; {likes}</h3>
+                <h3>&#x1F499; {likes}</h3>
+              </div>
+              <div className="top-left">
+                <h3>&#128170; {Props.project.difficulty}</h3>
               </div>
               <div className="bottom-center">
                 <h1>{Props.project.title}</h1>
               </div>
-              {/* <div className="bottom-left"><p>{Props.project.summary}</p></div> */}
             </>
           )}
         </div>

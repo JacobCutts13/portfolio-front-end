@@ -1,50 +1,44 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
 import { Link as SmoothLink } from "react-scroll";
-import likeJQuery from "../../jquery/likeJQuery";
-import pastebin from "../../assets/pastebin.png";
+import { IProject } from "./Projects";
+import Fireworks from "../../sketches/fireworks/Fireworks";
+import RayCast from "../../sketches/rayCast/RayCast";
+import GameOfLife from "../../sketches/GameOfLife";
+import ElectricParticles from "../../sketches/ElectricParticles";
+import SimpleOrbits from "../../sketches/SimpleOrbits";
+import GalaxySimulationGif from "../projects/GalaxySimulationGifs";
+import pastebinImage from "../../assets/pastebin.png";
+import ProjectLikeButton from "./projectLikeButton";
 
-export default function PastebinProject(): JSX.Element {
-  const [positiveLike, setpositiveLike] = useState<boolean>(true);
-  const [totalLikes, setTotalLikes] = useState<number>(0);
+export default function ProjectPage(): JSX.Element {
+  const location = useLocation();
 
-  useEffect(() => {
-    likeJQuery(); //run script to animate like button
-    const getTotalLikes = async () => {
-      axios
-        .get("https://jc13-portfolio.herokuapp.com/projects/8/likes")
-        .then((resp) => setTotalLikes(parseInt(resp.data[0].sum)))
-        .catch((err) => console.log(err));
-    };
-    getTotalLikes();
-  }, []);
-
-  const postLike = async () => {
-    const ApiUrl = "https://jc13-portfolio.herokuapp.com/projects/8/likes";
-    const value = positiveLike ? 1 : -1;
-    try {
-      axios
-        .post(ApiUrl, { value: value })
-        .then(() => setTotalLikes(totalLikes + value)) //update likes
-        .then(() => setpositiveLike(!positiveLike));
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const project = location.state as IProject;
 
   return (
     <>
       <header id="Header">
         <div style={{ position: "absolute", zIndex: -1, top: 0, left: 0 }}>
-          <img src={pastebin} alt="pastebin homepage" />
+          {project.title === "Simple Orbits" && <SimpleOrbits />}
+          {project.title === "Ray Cast" && <RayCast />}
+          {project.title === "Game Of Life" && <GameOfLife />}
+          {project.title === "Fireworks" && <Fireworks />}
+          {project.title === "Electric Particles" && <ElectricParticles />}
+          {project.title === "Galaxy Simulation" && <GalaxySimulationGif />}
+          {project.full_image !== "" && (
+            <img src={pastebinImage} alt={project.title + "homepage"} />
+          )}
         </div>
 
         <nav id="nav-wrap">
           <ul id="nav-project" className="nav">
             <li>
-              <Link to="/" className="home-link">
+              <Link
+                to="/"
+                className="home-link"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Home
               </Link>
             </li>
@@ -53,19 +47,19 @@ export default function PastebinProject(): JSX.Element {
 
         <div className="row project-banner">
           <div className="banner-text">
-            <Fade direction="up" cascade={true} delay={500}>
-              <div className="vist-link">
+            <Fade direction="up" cascade={true} delay={3000} duration={2000}>
+              {/* {project.external_url !== null && <div className="vist-link">
                 <button className="project-about-comments center">
                   <a
                     className="vist"
-                    href="https://spectacular-pothos-9652d0.netlify.app/"
+                    href={project.external_url}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
                     Vist
                   </a>
                 </button>
-              </div>
+              </div>} */}
 
               <div className="project-about-comments">
                 <SmoothLink
@@ -87,23 +81,17 @@ export default function PastebinProject(): JSX.Element {
                   <button className="project-nav-button">Discussion</button>
                 </SmoothLink>
               </div>
+
+              <ProjectLikeButton project={project} />
             </Fade>
-            <div className="animated-like-container">
-              <button
-                id="animated-like"
-                className="animated-like-button"
-                onClick={postLike}
-              ></button>
-            </div>
-            <h3>{totalLikes}</h3>
           </div>
         </div>
       </header>
 
       <section id="about">
         <iframe
-          title="Fireworks Journal"
-          src="https://v1.embednotion.com/embed/e7a8d26d3f72415a8e0aebedec456b15"
+          title={project.title + " Journal"}
+          src={project.iframe}
         ></iframe>
       </section>
 
