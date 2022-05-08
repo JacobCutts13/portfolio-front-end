@@ -19,7 +19,7 @@ export default function Header(): JSX.Element {
     { name: "Game-Of-Life", isClick: true },
     { name: "Ray-Cast", isClick: false },
     { name: "Fireworks", isClick: true },
-    { name: "ElectricParticles", isClick: false },
+    { name: "Electric-Particles", isClick: false },
   ];
 
   const [sketch, setSketch] = useState<IPickSketch>({
@@ -46,7 +46,7 @@ export default function Header(): JSX.Element {
         {sketch.name === "Ray-Cast" && <RayCast />}
         {sketch.name === "Game-Of-Life" && <GameOfLife />}
         {sketch.name === "Fireworks" && <Fireworks />}
-        {sketch.name === "ElectricParticles" && <ElectricParticles />}
+        {sketch.name === "Electric-Particles" && <ElectricParticles />}
       </div>
       <nav id="nav-wrap">
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
