@@ -48,13 +48,7 @@ export default function Header(): JSX.Element {
         "https://jc13-portfolio.herokuapp.com/projects/" +
           newSketch.id.toString()
       )
-      .then((resp) => {
-        console.log(
-          "https://jc13-portfolio.herokuapp.com/projects/" +
-            sketch.id.toString()
-        );
-        setSketchInfo(resp.data[0]);
-      })
+      .then((resp) => setSketchInfo(resp.data[0]))
       .catch((err) => console.log(err));
   };
 
