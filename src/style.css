@@ -39,9 +39,16 @@ h2 {
 .top-right {
   position: absolute;
   top: 10%;
-  left: 90%;
+  left: 85%;
   transform: translate(-50%, -50%);
   text-align: right;
+}
+.top-left {
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  text-align: left;
 }
 .bottom-center {
   position: absolute;
