@@ -8,12 +8,13 @@ export interface IProject {
   id: number;
   title: string;
   language: string[];
-  summary: string;
-  description: string;
-  image: string;
+  thumbnail_image: string;
   create_date: string;
   difficulty: number;
   likes: number;
+  iframe: string;
+  full_image?: string;
+  external_url?: string;
 }
 
 function Projects(): JSX.Element {
@@ -29,6 +30,7 @@ function Projects(): JSX.Element {
   const fetchProjects = async () => {
     const data = await fetch("https://jc13-portfolio.herokuapp.com/projects");
     const projects: IProject[] = await data.json();
+    console.log(projects);
     setProjects(projects);
     setFilteredProjects(projects);
   };
