@@ -67,7 +67,7 @@ export default function ProjectPage(): JSX.Element {
                   to="about"
                   spy={true}
                   smooth={true}
-                  duration={500}
+                  duration={800}
                 >
                   <button className="project-nav-button">About</button>
                 </SmoothLink>
@@ -76,7 +76,7 @@ export default function ProjectPage(): JSX.Element {
                   to="discussion"
                   spy={true}
                   smooth={true}
-                  duration={800}
+                  duration={1000}
                 >
                   <button className="project-nav-button">Discussion</button>
                 </SmoothLink>
