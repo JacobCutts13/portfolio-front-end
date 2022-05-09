@@ -102,51 +102,52 @@ export default function Header(): JSX.Element {
         </ul>
       </nav>
 
-      {sketchInfo !== undefined && (
-        <div className="row banner">
-          <div className="banner-text">
-            <Fade direction="up" duration={2000}>
-              <h1 className="responsive-headline">Jacob Cutts</h1>
-            </Fade>
-            {sketch.isClick && (
-              <Fade direction="up" duration={3000} cascade={true}>
-                <h3>
-                  Junior Software Engineer<br></br>Try clicking!
-                </h3>
-                <div className="sketch-buttons-container">
-                  <Link
-                    to="/project"
-                    onClick={() => window.scrollTo(0, 0)}
-                    state={sketchInfo}
-                    className="this-sketch"
-                  >
-                    This Sketch
-                  </Link>
-                  <button onClick={() => pickRandomSketch()}>New Sketch</button>
-                </div>
-              </Fade>
-            )}
-            {!sketch.isClick && (
-              <Fade direction="up" duration={3000} cascade={true}>
-                <h3>
-                  Junior Software Engineer<br></br>Try moving your mouse!
-                </h3>
-                <div className="sketch-buttons-container">
-                  <Link
-                    to="/project"
-                    onClick={() => window.scrollTo(0, 0)}
-                    state={sketchInfo}
-                    className="this-sketch"
-                  >
-                    This Sketch
-                  </Link>
-                  <button onClick={() => pickRandomSketch()}>New Sketch</button>
-                </div>
-              </Fade>
-            )}
+      <div className="row banner">
+        <div className="banner-text">
+          <Fade direction="up" duration={2000}>
+            <h1 className="responsive-headline">Jacob Cutts</h1>
+          </Fade>
 
-            <hr />
-            {/* <Fade direction="up" duration={2000}>
+          {sketch.isClick && sketchInfo !== undefined && (
+            <Fade direction="up" duration={2000} cascade={true}>
+              <h3>
+                Junior Software Engineer<br></br>Try clicking!
+              </h3>
+              <div className="sketch-buttons-container">
+                <Link
+                  to="/project"
+                  onClick={() => window.scrollTo(0, 0)}
+                  state={sketchInfo}
+                  className="this-sketch"
+                >
+                  This Sketch
+                </Link>
+                <button onClick={() => pickRandomSketch()}>New Sketch</button>
+              </div>
+            </Fade>
+          )}
+
+          {!sketch.isClick && sketchInfo !== undefined && (
+            <Fade direction="up" duration={2000} cascade={true}>
+              <h3>
+                Junior Software Engineer<br></br>Try moving your mouse!
+              </h3>
+              <div className="sketch-buttons-container">
+                <Link
+                  to="/project"
+                  onClick={() => window.scrollTo(0, 0)}
+                  state={sketchInfo}
+                  className="this-sketch"
+                >
+                  This Sketch
+                </Link>
+                <button onClick={() => pickRandomSketch()}>New Sketch</button>
+              </div>
+            </Fade>
+          )}
+
+          <hr />
+          {/* <Fade direction="up" duration={2000}>
                   <ul className="social">
                     <a href="#projects" className="button btn project-btn">
                       <i className="fa fa-book"></i>Project
@@ -156,9 +157,8 @@ export default function Header(): JSX.Element {
                     </a>
                   </ul>
                 </Fade> */}
-          </div>
         </div>
-      )}
+      </div>
 
       <p className="scrolldown">
         <SmoothLink
