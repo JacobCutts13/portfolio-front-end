@@ -24,7 +24,7 @@ function Projects(): JSX.Element {
   const [projects, setProjects] = useState<IProject[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<IProject[]>([]);
   const [filter, setFilter] = useState<string>("");
-  const [sort, setSort] = useState<string>("likes");
+  const [sort, setSort] = useState<string>("difficulty");
   const [hoverID, setHoverID] = useState<number>(0);
   const [languages, setLanguages] = useState<string[]>([]);
 
@@ -34,11 +34,13 @@ function Projects(): JSX.Element {
 
   useEffect(() => {
     if (filter === "") {
-      setFilteredProjects(projects);
+      setFilteredProjects(projects.sort((a, b) => sortProjects(a, b, sort)));
       return;
     } else {
       setFilteredProjects(
-        projects.filter((Project) => Project.language.includes(filter))
+        projects
+          .filter((Project) => Project.language.includes(filter))
+          .sort((a, b) => sortProjects(a, b, sort))
       );
     } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
