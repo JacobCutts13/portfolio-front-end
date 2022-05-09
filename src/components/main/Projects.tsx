@@ -4,6 +4,8 @@ import Project from "./Project";
 import Filter from "./ProjectsFilter";
 import { Fade } from "react-awesome-reveal";
 import sortProjects from "../../utils/sortProjects";
+import ProjectsSort from "./ProjectsSort";
+import findUniqueLanguages from "../../utils/uniqueLanguages";
 
 export interface IProject {
   id: number;
@@ -22,18 +24,38 @@ function Projects(): JSX.Element {
   const [projects, setProjects] = useState<IProject[]>([]);
   const [filteredProjects, setFilteredProjects] = useState<IProject[]>([]);
   const [filter, setFilter] = useState<string>("");
-  const [sort, setSort] = useState<string>("difficulty");
+  const [sort, setSort] = useState<string>("likes");
   const [hoverID, setHoverID] = useState<number>(0);
+  const [languages, setLanguages] = useState<string[]>([]);
 
   useEffect(() => {
     fetchProjects(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (filter === "") {
+      setFilteredProjects(projects);
+      return;
+    } else {
+      setFilteredProjects(
+        projects.filter((Project) => Project.language.includes(filter))
+      );
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filter]);
+
+  useEffect(() => {
+    const newProjects = filteredProjects.sort((a, b) =>
+      sortProjects(a, b, sort)
+    );
+    setFilteredProjects([...newProjects]); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sort]);
 
   const fetchProjects = async () => {
     const data = await fetch("https://jc13-portfolio.herokuapp.com/projects");
     const projects: IProject[] = await data.json();
     setProjects(projects);
     setFilteredProjects(projects.sort((a, b) => sortProjects(a, b, sort)));
+    setLanguages(findUniqueLanguages(projects));
   };
 
   return (
@@ -53,15 +75,23 @@ function Projects(): JSX.Element {
       </div>
 
       <div className="projects-main">
-        <Filter
-          filter={filter}
-          setFilter={setFilter}
-          sort={sort}
-          setSort={setSort}
-          setFilteredProjects={setFilteredProjects}
-          filteredProjects={filteredProjects}
-          projects={projects}
-        />
+        <div className="filter-sort-buttons">
+          <ProjectsSort
+            sort={sort}
+            setSort={setSort}
+            setFilteredProjects={setFilteredProjects}
+            filteredProjects={filteredProjects}
+          />
+
+          <Filter
+            filter={filter}
+            setFilter={setFilter}
+            setFilteredProjects={setFilteredProjects}
+            filteredProjects={filteredProjects}
+            projects={projects}
+            languages={languages}
+          />
+        </div>
         <motion.div layout className="projects" key="Projects-motion">
           <AnimatePresence>
             {projects.length > 0 &&
