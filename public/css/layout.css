@@ -196,9 +196,12 @@ header p.like-count {
 
 header a.vist {
    color: #fff;
+   margin: 0px auto;
 }
 header .center {
    margin: 0 auto;
+   width: 150px;
+   text-align: center;
 } 
 
 /* primary navigation
