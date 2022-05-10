@@ -108,34 +108,33 @@ export default function Header(): JSX.Element {
             <h1 className="responsive-headline">Jacob Cutts</h1>
           </Fade>
 
-          {sketch.isClick && sketchInfo !== undefined && (
-            <Fade direction="up" duration={2000} cascade={true}>
+          {sketch.isClick && (
+            <Fade direction="up" duration={2000} delay={1000}>
               <h3>
                 Junior Software Engineer<br></br>Try clicking!
+                <hr />
               </h3>
-              <div className="sketch-buttons-container">
-                <Link
-                  to="/project"
-                  onClick={() => window.scrollTo(0, 0)}
-                  state={sketchInfo}
-                  className="this-sketch"
-                >
-                  This Sketch
-                </Link>
-                <button onClick={() => pickRandomSketch()}>New Sketch</button>
-              </div>
             </Fade>
           )}
 
-          {!sketch.isClick && sketchInfo !== undefined && (
-            <Fade direction="up" duration={2000} cascade={true}>
+          {!sketch.isClick && (
+            <Fade direction="up" duration={2000} delay={1000}>
               <h3>
                 Junior Software Engineer<br></br>Try moving your mouse!
+                <hr />
               </h3>
+            </Fade>
+          )}
+
+          {sketchInfo !== undefined && (
+            <Fade direction="up" duration={2000} delay={1000}>
               <div className="sketch-buttons-container">
                 <Link
                   to="/project"
-                  onClick={() => window.scrollTo(0, 0)}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    console.log("sending: " + sketchInfo);
+                  }}
                   state={sketchInfo}
                   className="this-sketch"
                 >
@@ -146,7 +145,6 @@ export default function Header(): JSX.Element {
             </Fade>
           )}
 
-          <hr />
           {/* <Fade direction="up" duration={2000}>
                   <ul className="social">
                     <a href="#projects" className="button btn project-btn">

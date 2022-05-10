@@ -48,7 +48,7 @@ export default function ProjectPage(): JSX.Element {
         <div className="row project-banner">
           <div className="banner-text">
             <Fade direction="up" delay={2000} duration={2000}>
-              {project.external_url !== "" && (
+              {/* {project.external_url !== "" && (
                 <div className="vist-link">
                   <button className="project-about-comments center">
                     <a
@@ -61,7 +61,7 @@ export default function ProjectPage(): JSX.Element {
                     </a>
                   </button>
                 </div>
-              )}
+              )} */}
             </Fade>
 
             <Fade direction="up" cascade={true} delay={3000} duration={2000}>
