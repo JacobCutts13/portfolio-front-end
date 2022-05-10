@@ -26,7 +26,7 @@ export default function ProjectPage(): JSX.Element {
           {project.title === "Fireworks" && <Fireworks />}
           {project.title === "Electric Particles" && <ElectricParticles />}
           {project.title === "Galaxy Simulation" && <GalaxySimulationGif />}
-          {project.full_image !== "" && (
+          {project.full_image === "pastebin.png" && (
             <img src={pastebinImage} alt={project.title + "homepage"} />
           )}
         </div>
@@ -47,20 +47,24 @@ export default function ProjectPage(): JSX.Element {
 
         <div className="row project-banner">
           <div className="banner-text">
-            <Fade direction="up" cascade={true} delay={3000} duration={2000}>
-              {/* {project.external_url !== null && <div className="vist-link">
-                <button className="project-about-comments center">
-                  <a
-                    className="vist"
-                    href={project.external_url}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    Vist
-                  </a>
-                </button>
-              </div>} */}
+            <Fade direction="up" delay={2000} duration={2000}>
+              {project.external_url !== "" && (
+                <div className="vist-link">
+                  <button className="project-about-comments center">
+                    <a
+                      className="vist"
+                      href={project.external_url}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Vist
+                    </a>
+                  </button>
+                </div>
+              )}
+            </Fade>
 
+            <Fade direction="up" cascade={true} delay={3000} duration={2000}>
               <div className="project-about-comments">
                 <SmoothLink
                   className="project-nav-button"
