@@ -9,6 +9,7 @@ import ElectricParticles from "../../sketches/ElectricParticles";
 import SimpleOrbits from "../../sketches/SimpleOrbits";
 import GalaxySimulationGif from "../projects/GalaxySimulationGifs";
 import pastebinImage from "../../assets/pastebin.png";
+import pupVoteImage from "../../assets/pup-vote.png";
 import ProjectLikeButton from "./projectLikeButton";
 
 export default function ProjectPage(): JSX.Element {
@@ -28,6 +29,9 @@ export default function ProjectPage(): JSX.Element {
           {project.title === "Galaxy Simulation" && <GalaxySimulationGif />}
           {project.full_image === "pastebin.png" && (
             <img src={pastebinImage} alt={project.title + "homepage"} />
+          )}
+          {project.full_image === "pup-vote.png" && (
+            <img src={pupVoteImage} alt={project.title + "homepage"} />
           )}
         </div>
 
