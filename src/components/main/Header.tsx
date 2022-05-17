@@ -84,21 +84,21 @@ export default function Header(): JSX.Element {
 
           <li>
             <a className="smoothscroll" href="#updates">
-              Updates
-            </a>
-          </li>
-
-          <li>
-            <a className="smoothscroll" href="#platforms">
               Platforms
             </a>
           </li>
 
           <li>
+            <a className="smoothscroll" href="#platforms">
+              Updates
+            </a>
+          </li>
+
+          {/* <li>
             <a className="smoothscroll" href="#contact">
               Contact
             </a>
-          </li>
+          </li> */}
         </ul>
       </nav>
 
