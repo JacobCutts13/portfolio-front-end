@@ -529,6 +529,14 @@ ul#nav li.current a { color: #fe6928; }
    margin-bottom: 48px;
    color: #95A3A3;
 }
+#updates .toggle-notion{
+   display: flex;
+   flex-direction: row;
+}
+#updates .toggle-button{
+   margin: 10px 10px;
+   border-radius: 12px;
+}
 
 
 /* ------------------------------------------------------------------ */
