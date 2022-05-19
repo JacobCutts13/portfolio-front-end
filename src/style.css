@@ -19,6 +19,7 @@ h2 {
   margin: auto;
   width: 80%;
 }
+
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -43,6 +44,7 @@ h2 {
   transform: translate(-50%, -50%);
   text-align: right;
 }
+
 .top-left {
   position: absolute;
   top: 10%;
@@ -50,6 +52,7 @@ h2 {
   transform: translate(-50%, -50%);
   text-align: left;
 }
+
 .bottom-center {
   position: absolute;
   top: 90%;
@@ -78,14 +81,11 @@ iframe {
   display: block;
 }
 
-.galaxy-sim-image-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
-}
-
-.galaxy-sim-image {
-  position: relative;
+.galaxy-gifs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50%;
 }
 
 /* like button
@@ -111,11 +111,13 @@ iframe {
 .active#animated-like:after {
   background: #1f68e1 !important;
 }
+
 #animated-like {
   width: 100px;
   height: 80px;
   transition: background 0.5s ease;
 }
+
 #animated-like:before,
 #animated-like:after {
   transition: background 0.5s ease;
@@ -130,11 +132,13 @@ iframe {
   transform: rotate(-45deg);
   transform-origin: 0 100%;
 }
+
 #animated-like:after {
   left: 0;
   transform: rotate(45deg);
   transform-origin: 100% 100%;
 }
+
 button.animated-like-button:hover {
   background: none;
 }
