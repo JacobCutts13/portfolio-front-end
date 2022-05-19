@@ -35,6 +35,29 @@ export default function ProjectPage(): JSX.Element {
           )}
         </div>
 
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 1,
+            top: "5%",
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          {project.title === "Animal Invaders" && (
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/oTyEbLO5aJs"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          )}
+        </div>
+
         <nav id="nav-wrap">
           <ul id="nav-project" className="nav">
             <li>
