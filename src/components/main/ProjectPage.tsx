@@ -7,7 +7,6 @@ import RayCast from "../../sketches/rayCast/RayCast";
 import GameOfLife from "../../sketches/GameOfLife";
 import ElectricParticles from "../../sketches/ElectricParticles";
 import SimpleOrbits from "../../sketches/SimpleOrbits";
-import GalaxySimulationGif from "../projects/GalaxySimulationGifs";
 import pastebinImage from "../../assets/pastebin.png";
 import pupVoteImage from "../../assets/pup-vote.png";
 import ProjectLikeButton from "./projectLikeButton";
@@ -26,7 +25,6 @@ export default function ProjectPage(): JSX.Element {
           {project.title === "Game Of Life" && <GameOfLife />}
           {project.title === "Fireworks" && <Fireworks />}
           {project.title === "Electric Particles" && <ElectricParticles />}
-          {project.title === "Galaxy Simulation" && <GalaxySimulationGif />}
           {project.full_image === "pastebin.png" && (
             <img src={pastebinImage} alt={project.title + "homepage"} />
           )}
@@ -55,6 +53,28 @@ export default function ProjectPage(): JSX.Element {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
+          )}
+          {project.title === "Galaxy Simulation" && (
+            <div className="galaxy-gifs">
+              <iframe
+                src="https://giphy.com/embed/OWkj7pXnzSWFPpcmlc"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen
+                style={{ background: "#FFFFFF" }}
+                title="All"
+              ></iframe>
+              <iframe
+                src="https://giphy.com/embed/ZbXGHAhqIT2ouBAlWJ"
+                width="200"
+                height="200"
+                frameBorder="0"
+                allowFullScreen
+                style={{ background: "#FFFFFF" }}
+                title="tidal tails"
+              ></iframe>
+            </div>
           )}
         </div>
 
