@@ -36,7 +36,7 @@ export default function ProjectPage(): JSX.Element {
         <div
           style={{
             position: "absolute",
-            zIndex: 1,
+            zIndex: -1,
             top: "5%",
             left: 0,
             width: "100%",
